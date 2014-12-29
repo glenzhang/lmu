@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Slide Screen</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/slidescreen.css" />
+
+    <style>
+    .description {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .lmu-screen-wrap {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+    }
+    /*full screen style*/
+    /*.lmu-screen-wrap { height: 300px; }*/
+    
+    .slidescreen-triggers {
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+        width: 100%;
+    }
+    .slidescreen-triggers li {
+        display: inline-block;
+    }
+    .slidescreen-triggers .current {
+        background: #000;
+    }
+    </style>
+
+    <script src="../js/vendors/jquery/jquery.js"></script>
+    <script src="../js/core/lmu.js"></script>
+    <script src="../js/plugins/slidescreen.js"></script>
+
+</head>
+
+<body>
+
+    <section class="description">
+        <h1>
+            SlideScreen用于垂直滚动整个屏幕或者屏幕内的局部元素, 具体事例见页面底部。
+        </h1>
+    </section>
+
+
+    <div id="J_screen_wrap" class="lmu-screen-wrap">
+        <div class="J_screen_inner lmu-screen-inner">
+            <section style="background: #00A1FF">1</section>
+            <section style="background: #FF7D00">2</section>
+            <section style="background: #06A343">3</section>
+            <section style="background: #A6A343">4</section>
+            <section style="background: #E6A343">5</section>
+            <section style="background: #C6A343">6</section>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        $("#J_screen_wrap").slidescreen({
+            callback: function(p) {
+                //console.log(p);
+            }
+        });
+    }());
+    </script>
+
+</body>
+</html>

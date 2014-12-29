@@ -1,0 +1,28 @@
+/* fui button */
+/*
+	<a href="" class="lui-btn lui-btn-green">Button</a>
+*/
+
+/* common */
+.lui-btn{display:inline-block; box-sizing:border-box; height:35px; margin:0; padding:0 1em; outline:0; border:1px solid #309B0F; overflow:visible; vertical-align:middle; -webkit-border-radius:3px; border-radius:3px; background:#02AC25; text-decoration:none; font-size:14px; font-weight:bold; line-height:35px; text-align:center; white-space:nowrap; color:#FFF;}
+
+/* size */
+.lui-btn-s{height:25px; font-size:14px; line-height:25px;}
+.lui-btn-m{height:35px; font-size:16px; line-height:35px;}
+.lui-btn-l{height:45px; font-size:18px; line-height:45px; padding:0 2em;}
+.lui-btn-xl{height:55px; font-size:18px; line-height:55px; padding:0 2em;}
+
+/*style*/
+.lui-btn-full{width:100%; padding:0;}
+.lui-btn-rect{-webkit-border-radius:0; border-radius:0;}
+
+/* color */
+.lui-btn-green{border-color:#309B0F; background:#02AC25;}
+.lui-btn-orange{border-color:#C45B11; background:#EB6100;}
+.lui-btn-gray{border-color:#C5C5C5; background:#F0F0F0; color:#333;}
+.lui-btn-white{border-color:#BBB; background:#FFF; background:-webkit-linear-gradient(#FFF, #EEE); background:linear-gradient(#FFF, #EEE); color:#333;}
+.lui-btn-pink{border-color:#e7034a; background:#ff78a2; color: #fff;}
+.lui-btn-red{border-color:#fa191f; background:#ef3b40;}
+
+/* status */
+.lui-btn-disabled{border-color:#A9A9A9; background:#B1B1B1; color:#E2E2E2;}

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Toggle Panel</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/base.css" />
+
+    <style>
+    .description {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    </style>
+
+    <script src="../js/vendors/jquery/jquery.js"></script>
+    <script src="../js/core/lmu.js"></script>
+    <script src="../js/core/widget.js"></script>
+    <script src="../js/widget/togglepanel.js"></script>
+
+</head>
+
+<body>
+
+    <section class="description">
+        <h1>
+            toggle panel
+        </h1>
+
+    </section>
+    <section class="demo">
+        <div id="uppanel" style="width: 100%; display: none; background-color: #f60; height: 150px;"></div>
+        <div>
+            <button id="up">向上呼出</button>
+            <button id="updeactivate">向上呼出隐藏</button>
+        </div>
+
+        <div id="downpanel" style="width: 100%; display: none; background-color: #f60; height: 50px;"></div>
+        <div style="margin-top: 20px;">
+            <button id="down">向下呼出</button>
+            <button id="downdeactivate">向下呼出隐藏</button>
+        </div>
+
+        <div id="leftpanel" style="width: 50px; display: none; background-color: #f60; height: 100%;"></div>
+        <div style="margin-top: 20px;">
+            <button id="left">向左呼出</button>
+            <button style="margin-top: 10px;" id="leftdeactivate">向左呼出隐藏</button>
+        </div>
+
+        <div id="rightpanel" style="width: 50px; display: none; background-color: #f60; height: 100%;"></div>
+        <div style="margin-top: 20px;">
+            <button id="right">向右呼出</button>
+            <button style="margin-top: 10px;" id="rightdeactivate">向右呼出隐藏</button>
+        </div>
+    </section>
+    <script>
+    (function() {
+        // 向上呼出
+        var tpi = new LMU.UI.TogglePanel();
+        tpi.direction = "up";
+        tpi.$toggleEle = $("#uppanel");
+        tpi.setup();
+
+        $("#up").on("click", function() {
+            tpi.activate();
+        });
+
+        $("#updeactivate").on("click", function() {
+            tpi.deactivate();
+        });
+    }());
+
+    (function() {
+        // 向下呼出
+        var tpi = new LMU.UI.TogglePanel();
+        tpi.direction = "down";
+        tpi.$toggleEle = $("#downpanel");
+        tpi.setup();
+
+        $("#down").on("click", function() {
+            tpi.activate();
+        });
+
+        $("#downdeactivate").on("click", function() {
+            tpi.deactivate();
+        });
+    }());
+
+    (function() {
+        // 向左呼出
+        var tpi = new LMU.UI.TogglePanel();
+        tpi.direction = "left";
+        tpi.$toggleEle = $("#leftpanel");
+        tpi.setup();
+
+        $("#left").on("click", function() {
+            tpi.activate();
+        });
+
+        $("#leftdeactivate").on("click", function() {
+            tpi.deactivate();
+        });
+    }());
+
+    (function() {
+        // 向右呼出
+        var tpi = new LMU.UI.TogglePanel();
+        tpi.direction = "right";
+        tpi.mask = true;
+        tpi.$toggleEle = $("#rightpanel");
+        tpi.setup();
+
+        $("#right").on("click", function() {
+            tpi.activate();
+        });
+
+        $("#rightdeactivate").on("click", function() {
+            tpi.deactivate();
+        });
+    }());
+    </script>
+
+</body>
+
+</html>

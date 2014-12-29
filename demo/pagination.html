@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Pagination</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/pagination.css" />
+
+    <style>
+        body { background: #fff; }
+        .description { margin-bottom: 10px; text-align: center;}
+        .demo { margin: 30px 0; text-align: center; }
+    </style>
+
+</head>
+
+<body>
+
+    <section class="description">
+        <h1>翻页控件</h1>
+    </section>
+    <section class="demo">
+        <div class="lmu-pagination">
+            <a class="lmu-pagination-anchor lmu-page-first lmu-page-gray" href="#">首页</a>
+            <a class="lmu-pagination-anchor" href="#">上一页</a>
+            <select class="lmu-pagination-select J_lmu_page_select">
+                <option value="1">第1页</option>
+                <option value="2">第2页</option>
+                <option value="100">第100页</option>
+            </select>
+            <a class="lmu-pagination-anchor" href="#">下一页</a>
+            <a class="lmu-pagination-anchor lmu-page-end" href="#">末页</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            [].forEach.call(document.querySelectorAll(".J_lmu_page_select"), function (el, idx) {
+                el.addEventListener("change", function () {
+                    window.location.href = this.value;
+                }, false);
+            });
+        }, false);
+    </script>
+</body>
+</html>

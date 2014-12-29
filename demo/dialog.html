@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dialog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/button.css" />
+    <link rel="stylesheet" href="../css/dialog.css" />
+
+    <style>
+    body {
+        padding: 10px;
+    }
+    .description {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .demo {
+        margin: 30px 0;
+    }
+    </style>
+
+    <script src="../js/vendors/jquery/jquery.js"></script>
+    <script src="../js/core/lmu.js"></script>
+    <script src="../js/core/widget.js"></script>
+    <script src="../js/widget/dialog.js"></script>
+
+</head>
+
+<body>
+
+    <div class="description">
+        <h1>Dialog, 内容在HTML中, 也提供alert和confirm</h1>
+    </div>
+
+    <section class="demo">
+        <select name="" id="J_lmu_position">
+            <option value="center">位置居中</option>
+            <option value="top">位置居上</option>
+            <option value="bottom">位置居下</option>
+        </select>
+        <input type="checkbox" name="" id="J_lmu_animation" value="动画效果">
+        <a href="javascript:void(0);" id="J_lmu_dl_trigger">点击此处弹出弹层</a>
+    </section>
+
+    <section class="demo">
+        <a href="javascript:void(0);" id="J_lmu_dl_alert">alert</a>
+    </section>
+
+    <section class="demo">
+        <a href="javascript:void(0);" id="J_lmu_dl_confirm">confirm</a>
+    </section>
+
+    <section class="lmu-dl-wrap" id="J_lmu_dl">
+        <article class="J_lmu_dl_step">
+            <div class="lmu-dl-title">
+                <h3>登陆提示1</h3>
+                <a href="javascript:void(0);" class="lmu-dl-close J_lmu_dl_close">&times;</a>
+            </div>
+            <div class="lmu-dl-content">
+                <p>请使用返利网账号登录后, 获得更多个性化特色功能，<a href="javascript:void(0);" class="J_lmu_dl_close">关闭弹层</a>
+                </p>
+            </div>
+            <div class="lmu-dl-btns">
+                <a class="lmu-dl-btn lui-btn lui-btn-gray J_lmu_dl_close">取消</a>
+                <a class="lmu-dl-btn lui-btn lui-btn-orange J_lmu_dl_gonext" data-gonext="2">下一步</a>
+                <a class="lmu-dl-btn lui-btn lui-btn-orange J_lmu_dl_gonext" data-gonext="3">直接到第三步</a>
+            </div>
+        </article>
+        <!-- 登陆提示2 -->
+        <article class="J_lmu_dl_step" style="display: none">
+            <div class="lmu-dl-title">
+                <h3>登陆提示2</h3>
+                <a href="javascript:void(0);" class="lmu-dl-close J_lmu_dl_close">&times;</a>
+            </div>
+            <div class="lmu-dl-content">
+                <p>获得更多个性化特色功能，请使用返利网账号登录后, 获得更多个性化特色功能</p>
+            </div>
+            <div class="lmu-dl-btns">
+                <a class="lmu-dl-btn lui-btn lui-btn-gray J_lmu_dl_close">取消</a>
+                <a class="lmu-dl-btn lui-btn lui-btn-orange J_lmu_dl_gonext" data-gonext="3">下一步</a>
+            </div>
+        </article>
+        <!-- 登陆提示3 -->
+        <article class="J_lmu_dl_step" style="display: none">
+            <div class="lmu-dl-title">
+                <h3>登陆提示3</h3>
+                <a href="javascript:void(0);" class="lmu-dl-close J_lmu_dl_close">&times;</a>
+            </div>
+            <div class="lmu-dl-content">
+                <p>请使用返利网账号登录后, 获得更多个性化特色功能，<a href="javascript:void(0);" class="J_lmu_dl_close">关闭弹层</a>
+                </p>
+            </div>
+            <div class="lmu-dl-btns">
+                <a class="lmu-dl-btn lui-btn lui-btn-white J_lmu_dl_gonext" data-gonext="1">回第一步</a>
+                <a class="lmu-dl-btn lui-btn lui-btn-orange">确定</a>
+            </div>
+        </article>
+    </section>
+
+    <script>
+    var $position = $("#J_lmu_position");
+    var $animation = $("#J_lmu_animation");
+
+    var diaI = new LMU.UI.Dialog()
+    diaI.$dialog = $('#J_lmu_dl');
+    diaI.position = $position.val();
+    diaI.animation = $animation.is(':checked');
+    diaI.onBeforeLoad = function(e) {
+        console.log(e.type);
+    };
+
+    diaI.onLoad = function(e) {
+        console.log(e.type);
+    };
+
+    diaI.onBeforeClose = function(e) {
+        console.log(e.type);
+    };
+
+    diaI.onClose = function(e) {
+        console.log(e.type);
+    };
+    diaI.setup();
+
+
+    // alert 
+    var alertDialog = new LMU.UI.Dialog();
+    alertDialog.render = "alert";
+    alertDialog.setup();
+    alertDialog.getContent().html("这是个alert");
+
+    $("#J_lmu_dl_alert").on("touchend", function() {
+        alertDialog.load();
+    });
+
+    // confirm
+    var confirmDialog = new LMU.UI.Dialog();
+    confirmDialog.render = "confirm";
+    confirmDialog.setup();
+    confirmDialog.getContent().html("这是个confirm");
+    confirmDialog.confirmHandler = function() {
+        console.log('confirm ok');
+    };
+    $("#J_lmu_dl_confirm").on("touchend", function() {
+        confirmDialog.load();
+    });
+
+    $position.change(function() {
+        diaI.position = $position.val();
+    });
+
+    $animation.change(function() {
+        diaI.animation = $animation.is(':checked');
+    });
+
+    $('#J_lmu_dl_trigger').click(function() {
+        diaI.load();
+    });
+
+    </script>
+
+</body>
+
+</html>

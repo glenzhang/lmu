@@ -1,0 +1,8 @@
+.lmu-slider { position:relative;}
+.lmu-slider-box {position:relative; width: 100%; margin: 0 auto; overflow: hidden; }
+.lmu-slider-container { position:relative; display:-webkit-box; }
+.lmu-slider-item {position:relative; width:100%; background-color:#fff; }
+
+.lmu-slider-dots-box {position:absolute; width:100%; bottom: 0; left:0; display:inline-block; text-align:center; }
+.lmu-dot {display: inline-block; width: 10px; height: 10px; margin: 5px; border-radius: 5px; background: #fff; background-clip:padding-box; }
+.lmu-dot-on { background: rgba(0, 0, 0, .4); }

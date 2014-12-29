@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Slider</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/slider.css" />
+
+    <style>
+        .description { margin-bottom: 10px; text-align: center;}
+        .lmu-slider-item { height: 300px; background: #f60; font-size:100px; text-align:center; line-height: 300px; color: #fff;}
+    </style>
+
+    <script src="../js/vendors/jquery/jquery.js"></script>
+    <script src="../js/core/lmu.js"></script>
+    <script src="../js/core/widget.js"></script>
+    <script src="../js/widget/slider.js"></script>
+
+</head>
+
+<body>
+    <section class="description">
+        <h1>Slider</h1>
+    </section>
+    <section class="demo">
+        <section class="lmu-slider">
+            <section class="lmu-slider-box" id="J_lmu_slider_container">
+                <section class="lmu-slider-container">
+                    <section class="lmu-slider-item J_lmu_slider_item">1</section>
+                    <section class="lmu-slider-item J_lmu_slider_item">2</section>
+                    <section class="lmu-slider-item J_lmu_slider_item">3</section>
+                    <section class="lmu-slider-item J_lmu_slider_item">4</section>
+                    <section class="lmu-slider-item J_lmu_slider_item">5</section>
+                </section>
+            </section>
+        </section>
+
+    </section>
+
+    <script>
+        var slider = new LMU.UI.Slider($("#J_lmu_slider_container")[0], {
+            auto: 3000,
+            callback: function (index, element) {
+                //console.log(index);
+            }
+        });
+    </script>
+</body>
+</html>
