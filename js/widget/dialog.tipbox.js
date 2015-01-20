@@ -1,4 +1,4 @@
-///<reference path="../core/fmu.js" />
+///<reference path="../core/lmu.js" />
 ///<reference path="../core/widget.js" />
 ///<reference path="../widget/dialog.js" />
 ///<reference path="../vendors/jquery/jquery.js" />
