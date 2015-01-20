@@ -1,11 +1,10 @@
 ///<reference path="../vendors/jquery/jquery.js" />
 ///<reference path="../core/lmu.js" />
-///<reference path="../extend/jquery.extend.js" />
 ///<reference path="../core/widget.js" />
 
 /**
  * @file slider
- * @import vendors/jquery/jquery.js, core/lmu.js, core/widget.js
+ * @import vendors/jquery/jquery.js,core/lmu.js, core/widget.js
  */
 
 /*
@@ -14,13 +13,13 @@
  * Brad Birdsall
  * Copyright 2013, MIT License
  *
-*/
-LMU.UI.Slider = function(container, options) {
+ */
+FMU.UI.Slider = function (container, options) {
 
     "use strict";
 
     // utilities
-    var noop = function () { }; // simple no operation function
+    var noop = function () {}; // simple no operation function
     var offloadFn = function (fn) {
         setTimeout(fn || noop, 0)
     }; // offload a functions execution
@@ -30,7 +29,8 @@ LMU.UI.Slider = function(container, options) {
         touch: ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch,
         transitions: (function (temp) {
             var props = ['transitionProperty', 'WebkitTransition', 'MozTransition', 'OTransition', 'msTransition'];
-            for (var i in props) if (temp.style[props[i]] !== undefined) return true;
+            for (var i in props)
+                if (temp.style[props[i]] !== undefined) return true;
             return false;
         })(document.createElement('swipe'))
     };
@@ -46,20 +46,20 @@ LMU.UI.Slider = function(container, options) {
     options.continuous = options.continuous !== undefined ? options.continuous : true;
 
     var dotStringBuilder = new StringBuilder();
-    var dotOnClass = "lmu-dot-on";
-    dotStringBuilder.append('<section class="lmu-slider-dots-box">');
-    $container.find(".J_lmu_slider_item").each(function (idx, el) {
-        dotStringBuilder.append('<span class="J_lmu_dot lmu-dot {0}"></span>'.format(idx == 0 ? dotOnClass : ""));
+    var dotOnClass = "fmu-dot-on";
+    dotStringBuilder.append('<section class="fmu-slider-dots-box">');
+    $container.find(".J_fmu_slider_item").each(function (idx, el) {
+        dotStringBuilder.append('<span class="J_fmu_dot fmu-dot {0}"></span>'.format(idx == 0 ? dotOnClass : ""));
     });
     dotStringBuilder.append('</section>');
     $container.after(dotStringBuilder.toString());
 
-    $(".J_lmu_dot").on("touchend", function () {
+    $(".J_fmu_dot").on("touchend", function () {
         var $this = $(this);
         if ($this.hasClass(dotOnClass)) {
             return;
         }
-        $(".J_lmu_dot").removeClass(dotOnClass);
+        $(".J_fmu_dot").removeClass(dotOnClass);
         $this.addClass(dotOnClass);
         slide($this.index(), 500);
     });
@@ -68,10 +68,10 @@ LMU.UI.Slider = function(container, options) {
 
         // cache slides
         slides = element.children;
-        length = slides.length;
+        length = length || slides.length;
 
         // set continuous to false if only one slide
-        if (slides.length <= 2) options.continuous = false;
+        if (slides.length <= 1) options.continuous = false;
 
         //special case if two slides
         if (browser.transitions && options.continuous && slides.length < 3) {
@@ -175,7 +175,13 @@ LMU.UI.Slider = function(container, options) {
         }
 
         index = to;
-        $(".J_lmu_dot").removeClass(dotOnClass).eq(index).addClass(dotOnClass);
+
+        if (browser.transitions && options.continuous && length < 3) {
+            $(".J_fmu_dot").removeClass(dotOnClass).eq(index % 2).addClass(dotOnClass);
+        } else {
+            $(".J_fmu_dot").removeClass(dotOnClass).eq(index).addClass(dotOnClass);
+        }
+
         offloadFn(options.callback && options.callback(index, slides[index]));
     }
 
@@ -193,15 +199,15 @@ LMU.UI.Slider = function(container, options) {
         if (!style) return;
 
         style.webkitTransitionDuration =
-        style.MozTransitionDuration =
-        style.msTransitionDuration =
-        style.OTransitionDuration =
-        style.transitionDuration = speed + 'ms';
+            style.MozTransitionDuration =
+            style.msTransitionDuration =
+            style.OTransitionDuration =
+            style.transitionDuration = speed + 'ms';
 
         style.webkitTransform = 'translate(' + dist + 'px,0)' + 'translateZ(0)';
         style.msTransform =
-        style.MozTransform =
-        style.OTransform = 'translateX(' + dist + 'px)';
+            style.MozTransform =
+            style.OTransform = 'translateX(' + dist + 'px)';
     }
 
     function animate(from, to, speed) {
@@ -358,11 +364,11 @@ LMU.UI.Slider = function(container, options) {
                 } else {
 
                     delta.x =
-                    delta.x / ((!index && delta.x > 0 // if first slide and sliding left
-                    || index == slides.length - 1 // or if last slide and sliding right
-                    && delta.x < 0 // and if sliding at all
-                    ) ? (Math.abs(delta.x) / width + 1) // determine resistance level
-                    : 1); // no resistance if false
+                        delta.x / ((!index && delta.x > 0 // if first slide and sliding left
+                                || index == slides.length - 1 // or if last slide and sliding right
+                                && delta.x < 0 // and if sliding at all
+                            ) ? (Math.abs(delta.x) / width + 1) // determine resistance level
+                            : 1); // no resistance if false
                     // translate 1:1
                     translate(index - 1, delta.x + slidePos[index - 1], 0);
                     translate(index, delta.x + slidePos[index], 0);
@@ -379,12 +385,12 @@ LMU.UI.Slider = function(container, options) {
 
             // determine if slide attempt triggers next/prev slide
             var isValidSlide =
-            Number(duration) < 250 // if slide duration is less than 250ms
-            && Math.abs(delta.x) > 20 // and if slide amt is greater than 20px
-            || Math.abs(delta.x) > width / 2; // or if slide amt is greater than half the width
+                Number(duration) < 250 // if slide duration is less than 250ms
+                && Math.abs(delta.x) > 20 // and if slide amt is greater than 20px
+                || Math.abs(delta.x) > width / 2; // or if slide amt is greater than half the width
             // determine if slide attempt is past start and end
             var isPastBounds = !index && delta.x > 0 // if first slide and slide amt is greater than 0
-            || index == slides.length - 1 && delta.x < 0; // or if last slide and slide amt is less than 0
+                || index == slides.length - 1 && delta.x < 0; // or if last slide and slide amt is less than 0
             if (options.continuous) isPastBounds = false;
 
             // determine direction of swipe (true:right, false:left)
@@ -423,8 +429,13 @@ LMU.UI.Slider = function(container, options) {
                         index = circle(index - 1);
 
                     }
-                 
-                    $(".J_lmu_dot").removeClass(dotOnClass).eq(index).addClass(dotOnClass);
+
+                    if (browser.transitions && options.continuous && length < 3) {
+                        $(".J_fmu_dot").removeClass(dotOnClass).eq(index % 2).addClass(dotOnClass);
+                    } else {
+                        $(".J_fmu_dot").removeClass(dotOnClass).eq(index).addClass(dotOnClass);
+                    }
+
                     options.callback && options.callback(index, slides[index]);
 
                 } else {
