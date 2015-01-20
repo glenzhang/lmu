@@ -1,10 +1,10 @@
 ///<reference path="../core/lmu.js" />
 ///<reference path="../core/widget.js" />
-///<reference path="../vendors/jquery/jquery.js" />
+///<reference path="../vendors/jquery/jquery-2.1.1.js" />
 
 /**
  * @file dialog
- * @import vendors/jquery/jquery.js, core/lmu.js, core/widget.js
+ * @import vendors/jquery/jquery-2.1.1.js, core/lmu.js, core/widget.js
  */
 
 LMU.UI.define("Dialog", {
@@ -31,6 +31,8 @@ LMU.UI.define("Dialog", {
         this.render = false;
 
         this.confirmHandler = $.noop;
+
+        this.autoClose = false;
     },
 
     setup: function () {
@@ -46,7 +48,6 @@ LMU.UI.define("Dialog", {
 
         var $win = $(window),
             $dialog = this.$dialog,
-            $closers = $dialog.find(this.closeSelector),
             $mask = $('.{0}'.format(this.maskClass));
 
         this._step();
@@ -57,7 +58,7 @@ LMU.UI.define("Dialog", {
             this._updatePosition();
         }));
 
-        $closers.on('click{0}'.format(this.eventNamespace), this.proxy(function (e) {
+        $dialog.on('click{0}'.format(this.eventNamespace), this.closeSelector, this.proxy(function (e) {
             e.preventDefault();
             this.close();
         }));
@@ -68,15 +69,7 @@ LMU.UI.define("Dialog", {
             }));
         }
 
-        $dialog.find('input').focus(this.proxy(function(){
-            this._updatePosition();
-        }));
-
-        $dialog.find('input').focus(this.proxy(function(){
-            this._updatePosition();
-        }));
-
-        $dialog.find('.J_lmu_dl_confirmed').on('click{0}'.format(this.eventNamespace), this.proxy(function (ev) {
+        $dialog.on('click{0}'.format(this.eventNamespace), '.J_lmu_dl_confirmed', this.proxy(function (ev) {
             var $this = $(ev.target);
             $this.attr("disabled", true);
             this.close();
@@ -259,6 +252,12 @@ LMU.UI.define("Dialog", {
 
         this.opened = true;
         $dialog.trigger('onLoad');
+
+        if (this.autoClose) {
+            setTimeout(this.proxy(function () {
+                this.close();
+            }), this.autoClose);
+        }
     },
 
     close: function (e) {

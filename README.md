@@ -45,7 +45,6 @@ LMU - Lily Mobile UI
             } 
         }); // 其中_privateMethod虽然外部也能访问，但对widget开发者来说此为局部函数，不对外使用。
 
-    
 
 # CSS命名规范 #
 1. css文件名和组件名一致
@@ -65,7 +64,24 @@ LMU - Lily Mobile UI
             init: function() {}
         });
 
-2. jQuery插件
+		// 使用
+		var dia = new LMU.UI.WidgetName();
+		dia.setup();
+
+2. widget插件-`hookPlugin`
+        
+		LMU.UI.WidgetName.hookPlugin({
+            method: function(){
+                
+            }
+        });
+	
+		// 使用
+		var dia = new LMU.UI.WidgetName();
+		dia.method();
+		dia.setup();
+
+3. jQuery插件
 
         $.fn.pluginName = function(options) {
             var settings = $.extend(true, {}, {
@@ -77,5 +93,5 @@ LMU - Lily Mobile UI
             });
         };
 
-3. 开发demo页面， 页面名字和组件名一样
+4. 开发demo页面， 页面名字和组件名一样
     - demo页力求简单明了，让调用的同学在5s明白如何使用。

@@ -10,8 +10,8 @@
 LMU.UI.define("Countdown", {
     init: function () {
         this.$output = "";
-        this.type = "all",  // all/day/hour/minute/second
-        this.daySelector = ".J_day";
+        this.type = "all", // all/day/hour/minute/second
+            this.daySelector = ".J_day";
         this.hourSelector = ".J_hour";
         this.minuteSelector = ".J_minute";
         this.secondSelector = ".J_second";
@@ -91,10 +91,15 @@ LMU.UI.define("Countdown", {
         var s = this.getSecond();
 
         if (!this.dhMerge) {
-            this.$day.html(d);
+            if (d == 0) {
+                this.$day.parent().remove();
+            } else {
+                this.$day.html(d);
+            }
+
             this.$hour.html(h);
         } else {
-            this.$day.parent().hide();
+            this.$day.parent().remove();
             this.$hour.html(this.fillZero(parseInt(d) * 24 + parseInt(h), 2));
         }
 
@@ -111,8 +116,7 @@ LMU.UI.define("Countdown", {
         var hour = parseInt((this.remain % 86400) / 3600, 10);
         if (this.type === "hour") {
             hour = parseInt(this.getDay() * 24 + (this.remain % 86400) / 3600, 10);
-        }
-        else {
+        } else {
             hour = this.fillZero(hour, 2);
         }
         return hour;
@@ -122,8 +126,7 @@ LMU.UI.define("Countdown", {
         var minute = parseInt((this.remain % 3600) / 60, 10);
         if (this.type === "minute") {
             minute = parseInt(this.getDay() * 24 * 60 + this.getHour() * 60 + (this.remain % 3600) / 60, 10);
-        }
-        else {
+        } else {
             minute = this.fillZero(minute, 2);
         }
 
@@ -137,8 +140,7 @@ LMU.UI.define("Countdown", {
                 this.getHour() * 60 * 60 +
                 this.getMinute() * 60 +
                 this.remain % 60;
-        }
-        else {
+        } else {
             second = this.fillZero(second, 2);
         }
         return second;

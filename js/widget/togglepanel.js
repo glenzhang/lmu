@@ -47,9 +47,9 @@ LMU.UI.define("TogglePanel", {
                 zIndex: 99
             });
 
-        //this["_{0}_deactivate".format(this.direction)]();
+        this["_{0}_deactivate".format(this.direction)]();
 
-        this.deactivate();
+        // this.deactivate();
 
         /*
         this.$toggleEle[0].addEventListener('webkitTransitionEnd', function (ev) {

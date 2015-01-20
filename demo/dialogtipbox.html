@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dialog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/button.css" />
+    <link rel="stylesheet" href="../css/dialog.css" />
+
+    <style>
+    body {
+        padding: 10px;
+    }
+    .description {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .demo {
+        text-align: center;
+        margin: 30px 0;
+    }
+    </style>
+
+    <script src="../js/vendors/jquery/jquery.js"></script>
+    <script src="../js/core/lmu.js"></script>
+    <script src="../js/core/widget.js"></script>
+    <script src="../js/widget/dialog.js"></script>
+    <script src="../js/widget/dialog.tipbox.js"></script>
+</head>
+
+<body>
+    <div class="description">
+        <h1>Dialog插件</h1>
+    </div>
+
+    <section class="demo">
+        <button class="lui-btn lui-btn-white lui-btn-s lui-btn-rect" id="J_success">成功</button>
+    </section>
+
+    <script>
+
+        var dia = new LMU.UI.Dialog();
+        dia.modal({
+            content: "模态框，可设置关闭时间",
+            autoClose: 0 * 1000
+        });
+        dia.setup();
+
+        $('#J_success').click(function () {
+            dia.load();
+        });
+
+    </script>
+
+</body>
+</html>
