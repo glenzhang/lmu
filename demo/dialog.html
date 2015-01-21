@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/button.css" />
+    <link rel="stylesheet" href="../css/grid.css" />
     <link rel="stylesheet" href="../css/dialog.css" />
 
     <style>
@@ -20,6 +21,16 @@
     }
     .demo {
         margin: 30px 0;
+    }
+    .lui-grid {
+        margin: 10px 0;
+    }
+    .lui-span0 {
+        margin-right: 5px;
+    }
+    .btn-box {
+        margin-top: 20px;
+        text-align: center;
     }
     </style>
 
@@ -37,18 +48,30 @@
     </div>
 
     <section class="demo">
-        <select name="" id="J_lmu_position">
-            <option value="center">位置居中</option>
-            <option value="top">位置居上</option>
-            <option value="bottom">位置居下</option>
-        </select>
-        <input type="checkbox" id="J_lmu_animation" value="动画效果">
+        <div class="lui-grid">
+            <div class="lui-span0">位置：</div>
+            <div class="lui-span1">
+                <select name="" id="J_lmu_position">
+                    <option value="top">上</option>
+                    <option value="center" selected>中</option>
+                    <option value="bottom">下</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="lui-grid">
+            <div class="lui-span0">动画：</div>
+            <div class="lui-span1">
+                <select name="" id="J_lmu_animation">
+                    <option selected value="1">yes</option>
+                    <option value="0" selected>no</option>
+                </select>
+            </div>
+        </div>
     </section>
 
-    <section class="demo">
-        <a href="javascript:void(0);" id="J_lmu_dl_trigger">dialog</a>
-        <a href="javascript:void(0);" id="J_lmu_dl_alert">alert</a>
-        <a href="javascript:void(0);" id="J_lmu_dl_confirm">confirm</a>
+    <section class="btn-box">
+        <button class="lui-btn lui-btn-rect lui-btn-orange lui-btn-s" id="J_lmu_dl_trigger">dialog</button>
     </section>
 
     <section class="lmu-dl-wrap" id="J_lmu_dl">
@@ -105,7 +128,7 @@
     var diaI = new LMU.UI.Dialog()
     diaI.$dialog = $('#J_lmu_dl');
     diaI.position = $position.val();
-    diaI.animation = $animation.is(':checked');
+    diaI.animation = $animation.val() == "1";
     diaI.onBeforeLoad = function(e) {
         console.log(e.type);
     };
@@ -123,34 +146,13 @@
     };
     diaI.setup();
 
-    // alert 
-    var alertDialog = new LMU.UI.Dialog();
-    alertDialog.render = "alert";
-    alertDialog.setup();
-    alertDialog.getContent().html("这是个alert");
-
-    $("#J_lmu_dl_alert").on("touchend", function() {
-        alertDialog.load();
-    });
-
-    // confirm
-    var confirmDialog = new LMU.UI.Dialog();
-    confirmDialog.render = "confirm";
-    confirmDialog.setup();
-    confirmDialog.getContent().html("这是个confirm");
-    confirmDialog.confirmHandler = function() {
-        console.log('confirm ok');
-    };
-    $("#J_lmu_dl_confirm").on("touchend", function() {
-        confirmDialog.load();
-    });
-
     $position.change(function() {
         diaI.position = $position.val();
+        diaI._updatePosition();
     });
 
     $animation.change(function() {
-        diaI.animation = $animation.is(':checked');
+        diaI.animation = $animation.val() == "1";
     });
 
     $('#J_lmu_dl_trigger').click(function() {
@@ -160,4 +162,5 @@
     </script>
 
 </body>
+
 </html>

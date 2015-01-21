@@ -37,20 +37,42 @@
     </div>
 
     <section class="demo">
-        <button class="lui-btn lui-btn-white lui-btn-s lui-btn-rect" id="J_success">成功</button>
+        <button class="lui-btn lui-btn-orange lui-btn-s lui-btn-rect" id="J_modal">modal</button>
+        <button class="lui-btn lui-btn-orange lui-btn-s lui-btn-rect" id="J_alert">alert</button>
+        <button class="lui-btn lui-btn-orange lui-btn-s lui-btn-rect" id="J_confirm">confirm</button>
     </section>
 
     <script>
 
         var dia = new LMU.UI.Dialog();
-        dia.modal({
-            content: "模态框，可设置关闭时间",
-            autoClose: 0 * 1000
-        });
+        dia.modal();
+        dia.setAutoClose(1000);
+        dia.setContent("模态框，可设置关闭时间");
         dia.setup();
 
-        $('#J_success').click(function () {
+        $("#J_modal").on("touchend", function () {
             dia.load();
+        });
+
+        var diaAlert = new LMU.UI.Dialog();
+        diaAlert.alert();
+        diaAlert.setContent("模拟alert");
+        diaAlert.setup();
+
+        $("#J_alert").on("touchend", function () {
+            diaAlert.load();
+        });
+
+        var diaConfirm = new LMU.UI.Dialog();
+        diaConfirm.confirm();
+        diaConfirm.confirmHandler = function() {
+            console.log("confirmed");
+        };
+        diaConfirm.setContent("模拟confirm");
+        diaConfirm.setup();
+
+        $("#J_confirm").on("touchend", function () {
+            diaConfirm.load();
         });
 
     </script>

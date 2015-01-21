@@ -27,21 +27,11 @@ LMU.UI.define("Dialog", {
 
         // 用于销毁事件
         this.eventNamespace = '.CLOSEDL';
-
-        this.render = false;
-
         this.confirmHandler = $.noop;
-
         this.autoClose = false;
     },
 
     setup: function () {
-        if (this.render == "alert") {
-            this._buildDefaultTemplate();
-        } else if(this.render == "confirm") {
-            this._buildDefaultTwoTemplate();
-        }
-
         if (this.$dialog.length == 0) {
             return;
         }
@@ -69,14 +59,6 @@ LMU.UI.define("Dialog", {
             }));
         }
 
-        $dialog.on('click{0}'.format(this.eventNamespace), '.J_lmu_dl_confirmed', this.proxy(function (ev) {
-            var $this = $(ev.target);
-            $this.attr("disabled", true);
-            this.close();
-            this.confirmHandler();
-            $this.removeAttr("disabled");
-        }));
-
         // callbacks
         $.each('onBeforeLoad,onLoad,onBeforeClose,onClose'.split(','), this.proxy(function (i, name) {
             if ($.isFunction(this[name])) {
@@ -87,12 +69,20 @@ LMU.UI.define("Dialog", {
         this._updatePosition();
     },
 
-    getContent: function () {
+    getContentContainer: function () {
         return this.$dialog.find(".lmu-dl-content");
     },
 
     getDialog: function () {
         return this.$dialog;
+    },
+
+    setContent: function(content) {
+        this.$dialog.find(".lmu-dl-content").html(content || "...");
+    },
+
+    setAutoClose: function(autoclose) {
+        this.autoClose = autoclose;
     },
 
     _step: function (reset) {
@@ -127,32 +117,6 @@ LMU.UI.define("Dialog", {
         });
     },
 
-    _buildDefaultTemplate: function () {
-        var defaultTemplate = new StringBuilder();
-        defaultTemplate.append('<section class="lmu-dl-wrap lmu-dl-default-wrap">')
-                        //.append('<div class="lmu-dl-title"><a href="javascript:void(0);" class="lmu-dl-close J_lmu_dl_close">&times;</a></div>')
-                        .append('<div class="lmu-dl-content">default</div>')
-                        .append('<div class="lmu-dl-btns">')
-                            .append('<button class="J_lmu_dl_close">确定</button>')
-                        .append('</div>')
-                       .append('</section>');
-
-        this.$dialog = $(defaultTemplate.toString()).appendTo("body");
-    },
-
-    _buildDefaultTwoTemplate: function () {
-        var defaultTemplate = new StringBuilder();
-        defaultTemplate.append('<section class="lmu-dl-wrap lmu-dl-default-wrap lmu-dl-defaulttwo-wrap">')
-                        //.append('<div class="lmu-dl-title"><a href="javascript:void(0);" class="lmu-dl-close J_lmu_dl_close">&times;</a></div>')
-                        .append('<div class="lmu-dl-content">default two</div>')
-                        .append('<div class="lmu-dl-btns">')
-                            .append('<button class="J_lmu_dl_close">取消</button><button class="J_lmu_dl_confirmed">确定</button>')
-                        .append('</div>')
-                       .append('</section>');
-
-        this.$dialog = $(defaultTemplate.toString()).appendTo("body");
-    },
-
     _updatePosition: function () {
         var $win = $(window);
         var w = $win.width(),
@@ -160,20 +124,20 @@ LMU.UI.define("Dialog", {
             $dialog = this.$dialog,
             oWidth = $dialog.outerWidth(true),
             oHeight = $dialog.outerHeight(true);
-            
+
         var lastH, lastW;
-        
-        switch (this.position){
-            case 'top' :
+
+        switch (this.position) {
+            case 'top':
                 lastH = 0;
                 lastW = (w - oWidth) / 2;
                 break;
-            case 'bottom' :
+            case 'bottom':
                 lastH = h - oHeight;
                 lastW = (w - oWidth) / 2;
                 break;
-            case 'center' :
-            default :
+            case 'center':
+            default:
                 lastH = (h - oHeight) / 2;
                 lastW = (w - oWidth) / 2;
                 break;
@@ -181,17 +145,17 @@ LMU.UI.define("Dialog", {
 
         var lastH, lastW;
 
-        switch (this.position){
-            case 'top' :
+        switch (this.position) {
+            case 'top':
                 lastH = 0;
                 lastW = (w - oWidth) / 2;
                 break;
-            case 'bottom' :
+            case 'bottom':
                 lastH = h - oHeight;
                 lastW = (w - oWidth) / 2;
                 break;
-            case 'center' :
-            default :
+            case 'center':
+            default:
                 lastH = (h - oHeight) / 2;
                 lastW = (w - oWidth) / 2;
                 break;
@@ -218,32 +182,46 @@ LMU.UI.define("Dialog", {
         e = e || $.Event();
         e.type = "onBeforeLoad";
         $dialog.trigger(e);
-        if (e.isDefaultPrevented()) { return; }
+        if (e.isDefaultPrevented()) {
+            return;
+        }
 
-        if(this.animation==true){
-            
-            switch (this.position){
-                case 'top' :
-                    startProp = {'-webkit-transform': 'translateY(-100%)'};
-                    endProp = {'-webkit-transform': 'translateY(0)'};
+        if (this.animation == true) {
+
+            switch (this.position) {
+                case 'top':
+                    startProp = {
+                        '-webkit-transform': 'translateY(-100%)'
+                    };
+                    endProp = {
+                        '-webkit-transform': 'translateY(0)'
+                    };
                     break;
-                case 'bottom' :
-                    startProp = {'-webkit-transform': 'translateY(100%)'};
-                    endProp = {'-webkit-transform': 'translateY(0)'};
+                case 'bottom':
+                    startProp = {
+                        '-webkit-transform': 'translateY(100%)'
+                    };
+                    endProp = {
+                        '-webkit-transform': 'translateY(0)'
+                    };
                     break;
-                case 'center' :
-                default :
-                    startProp = {'-webkit-transform': 'translateX(-200%)'};
-                    endProp = {'-webkit-transform': 'translateX(0)'};
+                case 'center':
+                default:
+                    startProp = {
+                        '-webkit-transform': 'translateX(-200%)'
+                    };
+                    endProp = {
+                        '-webkit-transform': 'translateX(0)'
+                    };
                     break;
             }
 
             $dialog.show().css(startProp).css("-webkit-transition", "all 1s ease-in-out")
-            setTimeout(function(){
+            setTimeout(function () {
                 $dialog.css(endProp);
-            },0)
-            
-        }else{
+            }, 0)
+
+        } else {
             $dialog.show();
         }
 
