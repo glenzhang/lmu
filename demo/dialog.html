@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/button.css" />
     <link rel="stylesheet" href="../css/grid.css" />
+    <link rel="stylesheet" href="../css/icon.css" />
     <link rel="stylesheet" href="../css/dialog.css" />
 
     <style>
@@ -78,7 +79,7 @@
         <article class="J_lmu_dl_step">
             <div class="lmu-dl-title">
                 <h3>登陆提示1</h3>
-                <a href="javascript:void(0);" class="lmu-dl-close J_lmu_dl_close">&times;</a>
+                <a href="javascript:void(0);" class="close-icon J_lmu_dl_close"></a>
             </div>
             <div class="lmu-dl-content">
                 <p>请使用返利网账号登录后, 获得更多个性化特色功能，<a href="javascript:void(0);" class="J_lmu_dl_close">关闭弹层</a>
@@ -94,7 +95,7 @@
         <article class="J_lmu_dl_step" style="display: none">
             <div class="lmu-dl-title">
                 <h3>登陆提示2</h3>
-                <a href="javascript:void(0);" class="lmu-dl-close J_lmu_dl_close">&times;</a>
+                <a href="javascript:void(0);" class="close-icon J_lmu_dl_close"></a>
             </div>
             <div class="lmu-dl-content">
                 <p>获得更多个性化特色功能，请使用返利网账号登录后, 获得更多个性化特色功能</p>
@@ -108,7 +109,7 @@
         <article class="J_lmu_dl_step" style="display: none">
             <div class="lmu-dl-title">
                 <h3>登陆提示3</h3>
-                <a href="javascript:void(0);" class="lmu-dl-close J_lmu_dl_close">&times;</a>
+                <a href="javascript:void(0);" class="close-icon J_lmu_dl_close"></a>
             </div>
             <div class="lmu-dl-content">
                 <p>请使用返利网账号登录后, 获得更多个性化特色功能，<a href="javascript:void(0);" class="J_lmu_dl_close">关闭弹层</a>
@@ -148,7 +149,7 @@
 
     $position.change(function() {
         diaI.position = $position.val();
-        diaI._updatePosition();
+        diaI.updatePosition();
     });
 
     $animation.change(function() {
