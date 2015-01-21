@@ -30,13 +30,16 @@ LMU.UI.define("TogglePanel", {
         this.translateY100 = "translateY(100%)";
         this.translateY_100 = "translateY(-100%)";
 
-        /*
-        if (this.mask) {
-            this.$toggleEle.wrap("<div style='width:100%;height:100%; background:rgba(0, 0, 0, .4);'></div>");
-            this.$toggleEle = this.$toggleEle.parent();
-        }
-        */
+        this.resetPanelPosition();
 
+        /*
+        this.$toggleEle[0].addEventListener('webkitTransitionEnd', function (ev) {
+            console.log(ev.type);
+        }, false);
+        */
+    },
+
+    resetPanelPosition: function () {
         if (this.mask) {
             this.$mask = $("<div style='position:fixed; left:0; top: 0; z-index: 98; display:none; width:100%;height:100%; background:rgba(0, 0, 0, .4);'></div>").appendTo("body")
         }
@@ -48,14 +51,6 @@ LMU.UI.define("TogglePanel", {
             });
 
         this["_{0}_deactivate".format(this.direction)]();
-
-        // this.deactivate();
-
-        /*
-        this.$toggleEle[0].addEventListener('webkitTransitionEnd', function (ev) {
-            console.log(ev.type);
-        }, false);
-        */
     },
 
     _up_deactivate: function () {
@@ -63,7 +58,7 @@ LMU.UI.define("TogglePanel", {
     },
 
     _up_activate: function () {
-       return this.$toggleEle.css(this.transformCssProp, this.translateY0);
+        return this.$toggleEle.css(this.transformCssProp, this.translateY0);
     },
 
     _down_deactivate: function () {
@@ -87,7 +82,7 @@ LMU.UI.define("TogglePanel", {
     },
 
     _right_activate: function () {
-        this.$toggleEle.css(this.transformCssProp, this.translateX0);
+        return this.$toggleEle.css(this.transformCssProp, this.translateX0);
     },
 
     activate: function () {

@@ -33,7 +33,7 @@
 <body>
 
     <div class="description">
-        <h1>Dialog, 内容在HTML中, 也提供alert和confirm</h1>
+        <h1>Dialog</h1>
     </div>
 
     <section class="demo">
@@ -42,15 +42,12 @@
             <option value="top">位置居上</option>
             <option value="bottom">位置居下</option>
         </select>
-        <input type="checkbox" name="" id="J_lmu_animation" value="动画效果">
-        <a href="javascript:void(0);" id="J_lmu_dl_trigger">点击此处弹出弹层</a>
+        <input type="checkbox" id="J_lmu_animation" value="动画效果">
     </section>
 
     <section class="demo">
+        <a href="javascript:void(0);" id="J_lmu_dl_trigger">dialog</a>
         <a href="javascript:void(0);" id="J_lmu_dl_alert">alert</a>
-    </section>
-
-    <section class="demo">
         <a href="javascript:void(0);" id="J_lmu_dl_confirm">confirm</a>
     </section>
 
@@ -126,7 +123,6 @@
     };
     diaI.setup();
 
-
     // alert 
     var alertDialog = new LMU.UI.Dialog();
     alertDialog.render = "alert";
@@ -164,5 +160,4 @@
     </script>
 
 </body>
-
 </html>

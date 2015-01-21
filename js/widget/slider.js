@@ -14,7 +14,7 @@
  * Copyright 2013, MIT License
  *
  */
-FMU.UI.Slider = function (container, options) {
+LMU.UI.Slider = function (container, options) {
 
     "use strict";
 
@@ -46,20 +46,20 @@ FMU.UI.Slider = function (container, options) {
     options.continuous = options.continuous !== undefined ? options.continuous : true;
 
     var dotStringBuilder = new StringBuilder();
-    var dotOnClass = "fmu-dot-on";
-    dotStringBuilder.append('<section class="fmu-slider-dots-box">');
-    $container.find(".J_fmu_slider_item").each(function (idx, el) {
-        dotStringBuilder.append('<span class="J_fmu_dot fmu-dot {0}"></span>'.format(idx == 0 ? dotOnClass : ""));
+    var dotOnClass = "lmu-dot-on";
+    dotStringBuilder.append('<section class="lmu-slider-dots-box">');
+    $container.find(".J_lmu_slider_item").each(function (idx, el) {
+        dotStringBuilder.append('<span class="J_lmu_dot lmu-dot {0}"></span>'.format(idx == 0 ? dotOnClass : ""));
     });
     dotStringBuilder.append('</section>');
     $container.after(dotStringBuilder.toString());
 
-    $(".J_fmu_dot").on("touchend", function () {
+    $(".J_lmu_dot").on("touchend", function () {
         var $this = $(this);
         if ($this.hasClass(dotOnClass)) {
             return;
         }
-        $(".J_fmu_dot").removeClass(dotOnClass);
+        $(".J_lmu_dot").removeClass(dotOnClass);
         $this.addClass(dotOnClass);
         slide($this.index(), 500);
     });
@@ -177,9 +177,9 @@ FMU.UI.Slider = function (container, options) {
         index = to;
 
         if (browser.transitions && options.continuous && length < 3) {
-            $(".J_fmu_dot").removeClass(dotOnClass).eq(index % 2).addClass(dotOnClass);
+            $(".J_lmu_dot").removeClass(dotOnClass).eq(index % 2).addClass(dotOnClass);
         } else {
-            $(".J_fmu_dot").removeClass(dotOnClass).eq(index).addClass(dotOnClass);
+            $(".J_lmu_dot").removeClass(dotOnClass).eq(index).addClass(dotOnClass);
         }
 
         offloadFn(options.callback && options.callback(index, slides[index]));
@@ -431,9 +431,9 @@ FMU.UI.Slider = function (container, options) {
                     }
 
                     if (browser.transitions && options.continuous && length < 3) {
-                        $(".J_fmu_dot").removeClass(dotOnClass).eq(index % 2).addClass(dotOnClass);
+                        $(".J_lmu_dot").removeClass(dotOnClass).eq(index % 2).addClass(dotOnClass);
                     } else {
-                        $(".J_fmu_dot").removeClass(dotOnClass).eq(index).addClass(dotOnClass);
+                        $(".J_lmu_dot").removeClass(dotOnClass).eq(index).addClass(dotOnClass);
                     }
 
                     options.callback && options.callback(index, slides[index]);

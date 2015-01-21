@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
     <title>Toggle Panel</title>
@@ -8,10 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/button.css" />
+    <link rel="stylesheet" href="../css/grid.css" />
 
     <style>
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
     .description {
         margin-bottom: 10px;
+        text-align: center;
+    }
+    .demo {
+        padding: 0 10px;
+    }
+    .lui-grid {
+        margin-top: 10px;
+    }
+    .btns-box {
+        margin-top: 15px;
         text-align: center;
     }
     </style>
@@ -27,100 +43,70 @@
 
     <section class="description">
         <h1>
-            toggle panel
+            Toggle Panel
         </h1>
-
     </section>
+
     <section class="demo">
-        <div id="uppanel" style="width: 100%; display: none; background-color: #f60; height: 150px;"></div>
-        <div>
-            <button id="up">向上呼出</button>
-            <button id="updeactivate">向上呼出隐藏</button>
-        </div>
+        <section class="lui-grid">
+            <article class="lui-span1">direction:</article>
+            <article class="lui-span0">
+                <select name="" id="J_direction">
+                    <option value="up" selected>up</option>
+                    <option value="down">down</option>
+                    <option value="left">left</option>
+                    <option value="right">right</option>
+                </select>
+            </article>
+        </section>
 
-        <div id="downpanel" style="width: 100%; display: none; background-color: #f60; height: 50px;"></div>
-        <div style="margin-top: 20px;">
-            <button id="down">向下呼出</button>
-            <button id="downdeactivate">向下呼出隐藏</button>
-        </div>
-
-        <div id="leftpanel" style="width: 50px; display: none; background-color: #f60; height: 100%;"></div>
-        <div style="margin-top: 20px;">
-            <button id="left">向左呼出</button>
-            <button style="margin-top: 10px;" id="leftdeactivate">向左呼出隐藏</button>
-        </div>
-
-        <div id="rightpanel" style="width: 50px; display: none; background-color: #f60; height: 100%;"></div>
-        <div style="margin-top: 20px;">
-            <button id="right">向右呼出</button>
-            <button style="margin-top: 10px;" id="rightdeactivate">向右呼出隐藏</button>
-        </div>
+        <section class="lui-grid">
+            <article class="lui-span1">has mask: </article>
+            <article class="lui-span0">
+                <select name="" id="J_mask">
+                    <option value="1">yes</option>
+                    <option value="0" selected>no</option>
+                </select>
+            </article>
+        </section>
     </section>
+
+    <div id="J_panel" style="width:100%; height:100%; display: none1; background-color: #f60; ">
+        <button class="lui-btn lui-btn-rect lui-btn-white lui-btn-s" id="J_hide_panel_trigger">隐藏</button>
+    </div>
+
+    <div class="btns-box">
+        <button class="lui-btn lui-btn-rect lui-btn-orange lui-btn-s" id="J_show_panel_trigger">显示</button>
+    </div>
+
     <script>
-    (function() {
-        // 向上呼出
-        var tpi = new LMU.UI.TogglePanel();
-        tpi.direction = "up";
-        tpi.$toggleEle = $("#uppanel");
-        tpi.setup();
+    var $direction = $("#J_direction");
+    var $mask = $("#J_mask");
 
-        $("#up").on("click", function() {
-            tpi.activate();
-        });
+    var tpi = new LMU.UI.TogglePanel();
+    tpi.direction = $direction.val();
+    tpi.mask = $mask.val() == "1";
+    tpi.$toggleEle = $("#J_panel");
+    tpi.setup();
 
-        $("#updeactivate").on("click", function() {
-            tpi.deactivate();
-        });
-    }());
+    $("#J_show_panel_trigger").on("touchend", function() {
+        tpi.activate();
+    });
 
-    (function() {
-        // 向下呼出
-        var tpi = new LMU.UI.TogglePanel();
-        tpi.direction = "down";
-        tpi.$toggleEle = $("#downpanel");
-        tpi.setup();
+    $("#J_hide_panel_trigger").on("touchend", function() {
+        tpi.deactivate();
+    });
 
-        $("#down").on("click", function() {
-            tpi.activate();
-        });
+    $direction.on("change", function(){
+        tpi.direction = $direction.val();
+        tpi.resetPanelPosition();
+    });
 
-        $("#downdeactivate").on("click", function() {
-            tpi.deactivate();
-        });
-    }());
+    $mask.on("change", function(){
+        tpi.mask = $mask.val() == "1";
+        tpi.resetPanelPosition();
+    });
 
-    (function() {
-        // 向左呼出
-        var tpi = new LMU.UI.TogglePanel();
-        tpi.direction = "left";
-        tpi.$toggleEle = $("#leftpanel");
-        tpi.setup();
-
-        $("#left").on("click", function() {
-            tpi.activate();
-        });
-
-        $("#leftdeactivate").on("click", function() {
-            tpi.deactivate();
-        });
-    }());
-
-    (function() {
-        // 向右呼出
-        var tpi = new LMU.UI.TogglePanel();
-        tpi.direction = "right";
-        tpi.mask = true;
-        tpi.$toggleEle = $("#rightpanel");
-        tpi.setup();
-
-        $("#right").on("click", function() {
-            tpi.activate();
-        });
-
-        $("#rightdeactivate").on("click", function() {
-            tpi.deactivate();
-        });
-    }());
     </script>
 
 </body>
