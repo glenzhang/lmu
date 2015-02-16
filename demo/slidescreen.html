@@ -15,26 +15,13 @@
         margin-bottom: 10px;
         text-align: center;
     }
-    .lmu-screen-wrap {
-        position: absolute;
-        height: 100%;
-        top: 0;
-        bottom: 0;
-    }
     /*full screen style*/
     /*.lmu-screen-wrap { height: 300px; }*/
     
-    .slidescreen-triggers {
-        position: absolute;
-        bottom: 0;
-        z-index: 10;
-        width: 100%;
-    }
-    .slidescreen-triggers li {
-        display: inline-block;
-    }
-    .slidescreen-triggers .current {
-        background: #000;
+    .lmu-screen-inner section {
+        color: #fff;
+        font-size: 100px;
+        text-align: center;
     }
     </style>
 
@@ -55,11 +42,16 @@
 
     <div id="J_screen_wrap" class="lmu-screen-wrap">
         <div class="J_screen_inner lmu-screen-inner">
-            <section style="background: #00A1FF">1</section>
-            <section style="background: #FF7D00">2</section>
-            <section style="background: #06A343">3</section>
-            <section style="background: #A6A343">4</section>
-            <section style="background: #E6A343">5</section>
+            <section style="background: #00A1FF">1<span class="lmu-screen-arrow"></span>
+            </section>
+            <section style="background: #FF7D00">2<span class="lmu-screen-arrow"></span>
+            </section>
+            <section style="background: #06A343">3<span class="lmu-screen-arrow"></span>
+            </section>
+            <section style="background: #A6A343">4<span class="lmu-screen-arrow"></span>
+            </section>
+            <section style="background: #E6A343">5<span class="lmu-screen-arrow"></span>
+            </section>
             <section style="background: #C6A343">6</section>
         </div>
     </div>
@@ -69,10 +61,12 @@
         $("#J_screen_wrap").slidescreen({
             callback: function(p) {
                 //console.log(p);
-            }
+            },
+            triggers: true
         });
     }());
     </script>
 
 </body>
+
 </html>

@@ -66,7 +66,7 @@
                         $t.removeClass(currentTriggerClass);
                         $t.eq(curPage).addClass(currentTriggerClass);
                     }
-
+                    
                 }, false);
 
                 $documet.on("click", settings.nextBtnSelector, function () {
