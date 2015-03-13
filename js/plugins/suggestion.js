@@ -53,17 +53,19 @@
             $input = $(this).on("keyup.suggestion", keyupHandler);
 
             $input.on("focusout.suggestion", function () {
-                if ($result.is(":visible")) {
-                    setTimeout(function () {
+                setTimeout(function () {
+                    if ($result.is(":visible")) {
                         $result.hide();
                         cachedVal = $.trim($input.val());
-                    }, 250);
-                }
+                    }
+                }, 250);
             });
 
             $input.on("focusin.suggestion", function () {
                 if ($.trim($input.val()) == cachedVal) {
                     $result.show();
+                }else{
+                    keyupHandler();
                 }
             });
 
