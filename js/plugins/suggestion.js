@@ -19,7 +19,11 @@
             complete: $.noop,
             resultClass: "lmu-suggestion-result",
             select: $.noop,
-            offset: {x: 0, y: 0, w: 0}
+            offset: {
+                x: 0,
+                y: 0,
+                w: 0
+            }
         }, options);
 
         var source = settings.source;
@@ -42,17 +46,19 @@
                 ev.preventDefault();
                 var text = $(this).text();
                 $input.val(text);
+                $result.hide();
                 settings.select(text);
-                
             });
 
             $input = $(this).on("keyup.suggestion", keyupHandler);
 
             $input.on("focusout.suggestion", function () {
-                setTimeout(function () {
-                    $result.hide();
-                    cachedVal = $.trim($input.val());
-                }, 250);
+                if ($result.is(":visible")) {
+                    setTimeout(function () {
+                        $result.hide();
+                        cachedVal = $.trim($input.val());
+                    }, 250);
+                }
             });
 
             $input.on("focusin.suggestion", function () {
@@ -68,12 +74,14 @@
             var val = $.trim($input.val());
             timeId && clearTimeout(timeId);
             if (val) {
-                timeId = setTimeout(function () { search(val); }, settings.delay);
+                timeId = setTimeout(function () {
+                    search(val);
+                }, settings.delay);
             } else {
                 flush();
             }
         }
-        
+
         function search(val) {
             if (isLocalSearch) {
                 filterSource(val, source);
@@ -83,7 +91,9 @@
         }
 
         function getRemoteSource(val) {
-            $.getJSON(source, { k: val }, function (res) {
+            $.getJSON(source, {
+                k: val
+            }, function (res) {
                 if (res.status == 1) {
                     filterSource(val, res.data.source || []);
                 }
@@ -106,7 +116,7 @@
             resultString = new StringBuilder();
 
             $.each(source, function (idx, item) {
-                if (item.text.indexOf(val) > -1 && result.length <10) {
+                if (item.text.indexOf(val) > -1 && result.length < 10) {
                     result.push(item);
                 }
             });

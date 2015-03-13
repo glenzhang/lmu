@@ -83,8 +83,18 @@
         value: "http://www.fanli.com/"
     }];
 
-     //$("#J_sug").suggestion({ source: testArr, offset: { y: 5, w: 4 } });
+    $("#J_sug").suggestion({
+        source: testArr,
+        offset: {
+            y: 5,
+            w: 4
+        },
+        select: function(text) {
+            console.log("已选择: " + text);
+        }
+    });
 
+    /*
     $("#J_sug").suggestion({
         source: "http://www.fehelper.com/story/13667/01/api?jsoncallback=?",
         select: function(text) {
@@ -95,6 +105,7 @@
             w: 4
         }
     });
+    */
     </script>
 
 </body>
