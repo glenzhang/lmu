@@ -11,12 +11,23 @@
     <link rel="stylesheet" href="../css/slidescreen.css" />
 
     <style>
+    html{
+        overflow: hidden;
+    }
+
     .description {
         margin-bottom: 10px;
         text-align: center;
     }
+
+    header{
+        position: absolute;
+        height: 50px;
+        top: 0;
+    }
+
     /*full screen style*/
-    /*.lmu-screen-wrap { height: 300px; }*/
+    .lmu-screen-wrap { margin-top: 50px;}
     
     .lmu-screen-inner section {
         color: #fff;
@@ -38,7 +49,6 @@
             SlideScreen用于垂直滚动整个屏幕或者屏幕内的局部元素, 具体事例见页面底部。
         </h1>
     </section>
-
 
     <div id="J_screen_wrap" class="lmu-screen-wrap">
         <div class="J_screen_inner lmu-screen-inner">
