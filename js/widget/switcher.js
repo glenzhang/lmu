@@ -100,7 +100,8 @@ LMU.UI.define("Switcher", {
 
     _checkedParent: function () {
         if (this.parent && this._checkAll(this.parent)) {
-            this.parent.$checkboxEle.attr("checked", true);
+            //this.parent.$checkboxEle.attr("checked", true);
+            this.parent.$checkboxEle.trigger("click");
             this.parent.$parent.removeClass(this.offClass).addClass(this.onClass);
             this.parent.status = 1;
         }
