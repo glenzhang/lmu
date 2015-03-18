@@ -24,14 +24,7 @@ LMU.UI.define("Switcher", {
         this.onClass = "lmu-switcher{0}-on".format(style);
         this.offClass = "lmu-switcher{0}-off".format(style);
 
-        if ($checkboxEle.attr("data-checked") == "1") {
-            $parent.addClass(this.onClass);
-            this.onCallback();
-        } else {
-            $parent.addClass(this.offClass);
-            this.offCallback();
-        }
-
+        $checkboxEle.attr("data-checked") == "1" ? $parent.addClass(this.onClass) : $parent.addClass(this.offClass);
         $checkboxEle.replaceWith($parent);
         $parent.append($checkboxEle.hide());
 
@@ -81,12 +74,9 @@ LMU.UI.define("Switcher", {
 
     _checkedParent: function () {
         var p = this.parent;
-
         if (p && this._checkAll(p)) {
             p.$checkboxEle.attr("data-checked", "1");
             p.$parent.removeClass(this.offClass).addClass(this.onClass);
-            p.onCallback();
-
             this._checkedParent.call(p);
         }
     },
@@ -96,7 +86,6 @@ LMU.UI.define("Switcher", {
         if (p) {
             p.$checkboxEle.removeAttr("checked");
             p.$parent.removeClass(this.onClass).addClass(this.offClass);
-            p.offCallback();
             this._unCheckedParent.call(p);
         }
     },
