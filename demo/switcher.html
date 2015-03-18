@@ -39,21 +39,16 @@
     </section>
 
     <section class="demo">
-
         <p>我是1和2的总开关：
-            <input class="J_switcher0" type="checkbox" name="LMU0" checked="checked" />
+            <input class="J_switcher0" type="checkbox" name="LMU0" />
         </p>
 
         <p>我是1开关：
-            <input class="J_switcher1" value="100" type="checkbox" name="LMU1" checked="checked" />
+            <input class="J_switcher1" value="100" type="checkbox" name="LMU1" data-checked="1" />
         </p>
 
         <p>我是2开关：
-            <input class="J_switcher2" type="checkbox" name="LMU2" checked="checked" />
-        </p>
-
-        <p>我是3开关：
-            <input class="J_switcher3" type="checkbox" name="LMU3" />
+            <input class="J_switcher2" type="checkbox" name="LMU2" data-checked="1" />
         </p>
 
         <p>我是5和6的总开关：
@@ -61,7 +56,11 @@
         </p>
 
         <p>我是5开关：
-            <input class="J_switcher5" value="400" type="checkbox" name="LMU5" checked="checked" />
+            <input class="J_switcher5" value="400" type="checkbox" name="LMU5" />
+        </p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是5开关的子开关501：
+            <input class="J_switcher501" value="400" type="checkbox" name="LMU5" />
         </p>
 
         <p>我是6开关：
@@ -92,9 +91,6 @@
     swi2.addToParent();
     swi2.setup();
 
-    var swi3 = new LMU.UI.Switcher();
-    swi3.$checkboxEle = $(".J_switcher3");
-    swi3.setup();
 
     var swi4 = new LMU.UI.Switcher();
     swi4.$checkboxEle = $(".J_switcher4");
@@ -113,6 +109,13 @@
         console.log("5关闭了；值：{0}；状态：{1}".format(this.val, this.status));
     };
     swi5.setup();
+
+    var swi501 = new LMU.UI.Switcher();
+    swi501.$checkboxEle = $(".J_switcher501");
+    swi501.style = "checkbox";
+    swi501.parent = swi5;
+    swi501.addToParent();
+    swi501.setup();
 
     var swi6 = new LMU.UI.Switcher();
     swi6.$checkboxEle = $(".J_switcher6");
