@@ -44,11 +44,11 @@
         </p>
 
         <p>我是1开关：
-            <input class="J_switcher1" value="100" type="checkbox" name="LMU1" data-checked="1" />
+            <input class="J_switcher1" value="100" type="checkbox" name="LMU1" data-checked="1"/>
         </p>
 
         <p>我是2开关：
-            <input class="J_switcher2" type="checkbox" name="LMU2" data-checked="1" />
+            <input class="J_switcher2" type="checkbox" name="LMU2" data-checked="1"/>
         </p>
 
         <p>我是5和6的总开关：
@@ -63,6 +63,18 @@
             <input class="J_switcher501" value="400" type="checkbox" name="LMU5" />
         </p>
 
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是501开关的子开关50101：
+            <input class="J_switcher50101" value="400" type="checkbox" name="LMU5" />
+        </p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是50101开关的子开关5010101：
+            <input class="J_switcher5010101" value="400" type="checkbox" name="LMU5" />
+        </p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是5开关的子开关502：
+            <input class="J_switcher502" value="400" type="checkbox" name="LMU5" />
+        </p>
+
         <p>我是6开关：
             <input class="J_switcher6" type="checkbox" name="LMU6" />
         </p>
@@ -71,17 +83,23 @@
     <script>
     var swi0 = new LMU.UI.Switcher();
     swi0.$checkboxEle = $(".J_switcher0");
+    swi0.onCallback = function() {
+        console.log("0打开了；值：{0}".format(this.$checkboxEle.val()));
+    };
+    swi0.offCallback = function() {
+        console.log("0关闭了；值：{0}".format(this.$checkboxEle.val()));
+    };
     swi0.setup();
 
     var swi1 = new LMU.UI.Switcher();
     swi1.$checkboxEle = $(".J_switcher1");
     swi1.parent = swi0;
     swi1.addToParent();
-    swi1.onCallback = function(ev) {
-        console.log("1打开了；值：{0}；状态：{1}".format(this.val, this.status));
+    swi1.onCallback = function() {
+        console.log("1打开了；值：{0}".format(this.$checkboxEle.val()));
     };
-    swi1.offCallback = function(ev) {
-        console.log("1关闭了；值：{0}；状态：{1}".format(this.val, this.status));
+    swi1.offCallback = function() {
+        console.log("1关闭了；值：{0}".format(this.$checkboxEle.val()));
     };
     swi1.setup();
 
@@ -90,7 +108,6 @@
     swi2.parent = swi0;
     swi2.addToParent();
     swi2.setup();
-
 
     var swi4 = new LMU.UI.Switcher();
     swi4.$checkboxEle = $(".J_switcher4");
@@ -102,11 +119,11 @@
     swi5.style = "checkbox";
     swi5.parent = swi4;
     swi5.addToParent();
-    swi5.onCallback = function(ev) {
-        console.log("5打开了；值：{0}；状态：{1}".format(this.val, this.status));
+    swi5.onCallback = function() {
+        console.log("5打开了；值：{0}".format(this.$checkboxEle.val()));
     };
-    swi5.offCallback = function(ev) {
-        console.log("5关闭了；值：{0}；状态：{1}".format(this.val, this.status));
+    swi5.offCallback = function() {
+        console.log("5关闭了；值：{0}".format(this.$checkboxEle.val()));
     };
     swi5.setup();
 
@@ -116,6 +133,27 @@
     swi501.parent = swi5;
     swi501.addToParent();
     swi501.setup();
+ 
+    var swi502 = new LMU.UI.Switcher();
+    swi502.$checkboxEle = $(".J_switcher502");
+    swi502.style = "checkbox";
+    swi502.parent = swi5;
+    swi502.addToParent();
+    swi502.setup();
+
+    var swi50101 = new LMU.UI.Switcher();
+    swi50101.$checkboxEle = $(".J_switcher50101");
+    swi50101.style = "checkbox";
+    swi50101.parent = swi501;
+    swi50101.addToParent();
+    swi50101.setup();
+
+    var swi5010101 = new LMU.UI.Switcher();
+    swi5010101.$checkboxEle = $(".J_switcher5010101");
+    swi5010101.style = "checkbox";
+    swi5010101.parent = swi50101;
+    swi5010101.addToParent();
+    swi5010101.setup();
 
     var swi6 = new LMU.UI.Switcher();
     swi6.$checkboxEle = $(".J_switcher6");
@@ -123,6 +161,7 @@
     swi6.parent = swi4;
     swi6.addToParent();
     swi6.setup();
+
     </script>
 
 </body>
