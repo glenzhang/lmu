@@ -44,6 +44,10 @@ LMU.UI.define("Dialog", {
 
         this.$mask = $mask.length > 0 ? $mask : $('<section class="{0}"></section>'.format(this.maskClass)).appendTo('body');
 
+        this.$mask.add($dialog).on("touchmove", function(ev) {
+            ev.preventDefault();
+        });
+
         $win.resize(this.proxy(function () {
             this._updatePosition();
         }));
