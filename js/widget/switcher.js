@@ -24,7 +24,7 @@ LMU.UI.define("Switcher", {
         this.onClass = "lmu-switcher{0}-on".format(style);
         this.offClass = "lmu-switcher{0}-off".format(style);
 
-        $checkboxEle.attr("data-checked") == "1" ? $parent.addClass(this.onClass) : $parent.addClass(this.offClass);
+        $checkboxEle.prop("checked") ? $parent.addClass(this.onClass) : $parent.addClass(this.offClass);
         $checkboxEle.replaceWith($parent);
         $parent.append($checkboxEle.hide());
 
@@ -61,14 +61,14 @@ LMU.UI.define("Switcher", {
 
     checkedSelf: function () {
         this.$parent.removeClass(this.offClass).addClass(this.onClass);
-        this.$checkboxEle.attr("data-checked", "1");
+        this.$checkboxEle.prop("checked", true);
         this._checkedParent();
         this._checkedChildren();
     },
 
     unCheckedSelf: function () {
         this.$parent.removeClass(this.onClass).addClass(this.offClass);
-        this.$checkboxEle.removeAttr("data-checked");
+        this.$checkboxEle.prop("checked", false);
 
         this._unCheckedParent();
         this._unCheckedChildren();
@@ -77,7 +77,7 @@ LMU.UI.define("Switcher", {
     _checkedParent: function () {
         var p = this.parent;
         if (p && this._checkAll(p)) {
-            p.$checkboxEle.attr("data-checked", "1");
+            p.$checkboxEle.prop("checked", true);
             p.$parent.removeClass(this.offClass).addClass(this.onClass);
             this._checkedParent.call(p);
         }
@@ -86,7 +86,7 @@ LMU.UI.define("Switcher", {
     _unCheckedParent: function () {
         var p = this.parent;
         if (p) {
-            p.$checkboxEle.removeAttr("checked");
+            p.$checkboxEle.prop("checked", false);
             p.$parent.removeClass(this.onClass).addClass(this.offClass);
             this._unCheckedParent.call(p);
         }
@@ -96,7 +96,7 @@ LMU.UI.define("Switcher", {
         for (var i = 0, children = this.children, len = children.length; i < len; i++) {
             var child = children[i];
             child.$parent.removeClass(this.onClass).addClass(this.offClass)
-            child.$checkboxEle.removeAttr("data-checked");
+            child.$checkboxEle.prop("checked", false);
 
             if (child.children.length) {
                 this._unCheckedChildren.call(child);
@@ -108,7 +108,7 @@ LMU.UI.define("Switcher", {
         for (var i = 0, children = this.children, len = children.length; i < len; i++) {
             var child = children[i];
             child.$parent.removeClass(this.offClass).addClass(this.onClass)
-            child.$checkboxEle.attr("data-checked", "1");
+            child.$checkboxEle.prop("checked", true);
 
             if (child.children.length) {
                 this._checkedChildren.call(child);
@@ -122,7 +122,7 @@ LMU.UI.define("Switcher", {
         for (var i = 0, children = parent.children, len = children.length; i < len; i++) {
             var $childrenCheckbox = children[i].$checkboxEle;
 
-            if (!$childrenCheckbox.attr("data-checked")) {
+            if (!$childrenCheckbox.prop("checked")) {
                 returnVal = false;
                 break;
             }
