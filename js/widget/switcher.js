@@ -43,9 +43,7 @@ LMU.UI.define("Switcher", {
                 this.offCallback();
             }
         }));
-
-        this._checkedParent();
-
+        
         $checkboxEle.data("switcher", this);
     },
 
