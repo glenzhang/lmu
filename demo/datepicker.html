@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Switcher</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/switcher.css" />
+
+    <style>
+    .description {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .demo {
+        padding: 30px;
+        background: #FFF;
+    }
+    .demo input[type="text"] {
+        display: block;
+        width: 90%;
+        height: 24px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    </style>
+
+    <script src="../js/vendors/jquery/jquery.js"></script>
+    <script src="../js/core/lmu.js"></script>
+    <script src="../js/core/widget.js"></script>
+    <script src="../js/widget/datepicker.js"></script>
+
+</head>
+
+<body>
+
+    <section class="description">
+        <h1>Date Picker</h1>
+    </section>
+
+    <section class="demo">
+
+        <input type="text" id="J_dp" />
+    </section>
+
+    <script>
+        var dp1 = new LMU.UI.DatePicker();
+        dp1.$trigger = $("#J_dp");
+    </script>
+
+</body>
+</html>
