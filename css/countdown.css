@@ -1,3 +1,19 @@
-.lmu-countdown { text-align: center; font-size: 14px; }
-.lmu-countdown-unitbox { display: inline-block; margin-left: 6px; }
-.lmu-countdown-unit { display: inline-block; width: 16px; height: 16px; padding: 3px; margin-right: 2px; border: 1px solid #ccc; background: #fff; vertical-align: middle; border-radius: 2px; }
+.lmu-countdown {
+    text-align: center;
+    font-size: 14px;
+}
+.lmu-countdown-unitbox {
+    display: inline-block;
+    margin-left: 6px;
+}
+.lmu-countdown-unit {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    padding: 3px;
+    margin-right: 2px;
+    border: 1px solid #ccc;
+    background: #fff;
+    vertical-align: middle;
+    border-radius: 2px;
+}

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="../css/grid.css" />
 
     <style>
-    html, body {
+    html,
+    body {
         width: 100%;
         height: 100%;
     }
@@ -97,16 +98,15 @@
         tpi.deactivate();
     });
 
-    $direction.on("change", function(){
+    $direction.on("change", function() {
         tpi.direction = $direction.val();
         tpi.resetPanelPosition();
     });
 
-    $mask.on("change", function(){
+    $mask.on("change", function() {
         tpi.mask = $mask.val() == "1";
         tpi.resetPanelPosition();
     });
-
     </script>
 
 </body>

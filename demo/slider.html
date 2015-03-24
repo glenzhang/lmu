@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <title>Slider</title>
 
@@ -10,8 +11,18 @@
     <link rel="stylesheet" href="../css/slider.css" />
 
     <style>
-        .description { margin-bottom: 10px; text-align: center;}
-        .lmu-slider-item { height: 300px; background: #f60; font-size:100px; text-align:center; line-height: 300px; color: #fff;}
+    .description {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .lmu-slider-item {
+        height: 300px;
+        background: #f60;
+        font-size: 100px;
+        text-align: center;
+        line-height: 300px;
+        color: #fff;
+    }
     </style>
 
     <script src="../js/vendors/jquery/jquery.js"></script>
@@ -41,12 +52,13 @@
     </section>
 
     <script>
-        var slider = new LMU.UI.Slider($("#J_lmu_slider_container")[0], {
-            auto: 3000,
-            callback: function (index, element) {
-                //console.log(index);
-            }
-        });
+    var slider = new LMU.UI.Slider($("#J_lmu_slider_container")[0], {
+        auto: 3000,
+        callback: function(index, element) {
+            //console.log(index);
+        }
+    });
     </script>
 </body>
+
 </html>

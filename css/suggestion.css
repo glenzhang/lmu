@@ -1,4 +1,20 @@
-.lmu-suggestion-result { display:none; position: absolute; border: 1px solid #a9a9a9; box-sizing:border-box; background-color: #fff;}
-.lmu-suggestion-item { height: 26px; border-bottom:1px solid #eee; line-height: 26px; }
-.lmu-suggestion-item:last-child { border-bottom: none; }
-.lmu-suggestion-item a { display: block; width: 100%; overflow:hidden;}
+.lmu-suggestion-result {
+    display: none;
+    position: absolute;
+    border: 1px solid #a9a9a9;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.lmu-suggestion-item {
+    height: 26px;
+    border-bottom: 1px solid #eee;
+    line-height: 26px;
+}
+.lmu-suggestion-item:last-child {
+    border-bottom: none;
+}
+.lmu-suggestion-item a {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
