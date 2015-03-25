@@ -1,29 +1,38 @@
-/* fui button */
+/* lui button */
 /*
     <a href="" class="lui-btn lui-btn-green">Button</a>
 */
 
-
 /* common */
-.lui-btn { display: inline-block; box-sizing: border-box; height: 35px; margin: 0; padding: 0 1em; outline: 0; border: 1px solid #309B0F; overflow: visible; vertical-align: middle; -webkit-border-radius: 3px; border-radius: 3px; background: #02AC25; text-decoration: none; font-size: 14px; font-weight: bold; line-height: 35px; text-align: center; white-space: nowrap; color: #FFF; }
+.lui-btn{display:inline-block; box-sizing:border-box; height:35px; margin:0; padding:0 1em; outline:0; border:1px solid #309B0F; overflow:visible; vertical-align:middle; -webkit-border-radius:3px; border-radius:3px; background:#02AC25; text-decoration:none; font-size:14px; font-weight:bold; line-height:35px; text-align:center; white-space:nowrap; color:#FFF; -webkit-appearance:none; appearance:none;}
 
 /* size */
-.lui-btn-s { height: 25px; font-size: 14px; line-height: 25px; }
-.lui-btn-m { height: 35px; font-size: 16px; line-height: 35px; }
-.lui-btn-l { height: 45px; font-size: 18px; line-height: 45px; padding: 0 2em; }
-.lui-btn-xl { height: 55px; font-size: 18px; line-height: 55px; padding: 0 2em; }
+.lui-btn-s{height:25px; font-size:14px; line-height:25px;}
+.lui-btn-m{height:35px; font-size:16px; line-height:35px;}
+.lui-btn-l{height:45px; font-size:18px; line-height:45px; padding:0 2em;}
+.lui-btn-xl{height:55px; font-size:18px; line-height:55px; padding:0 2em;}
 
 /*style*/
-.lui-btn-full { width: 100%; padding: 0; }
-.lui-btn-rect { -webkit-border-radius: 0; border-radius: 0; }
+.lui-btn-full{width:100%; padding:0;}
+.lui-btn-rect{-webkit-border-radius:0; border-radius:0;}
 
 /* color */
-.lui-btn-green { border-color: #309B0F; background: #02AC25; }
-.lui-btn-orange { border-color: #C45B11; background: #EB6100; }
-.lui-btn-gray { border-color: #C5C5C5; background: #F0F0F0; color: #333; }
-.lui-btn-white { border-color: #BBB; background: #FFF; background: -webkit-linear-gradient(#FFF, #EEE); background: linear-gradient(#FFF, #EEE); color: #333; }
-.lui-btn-pink { border-color: #e7034a; background: #ff78a2; color: #fff; }
-.lui-btn-red { border-color: #fa191f; background: #ef3b40; }
+.lui-btn-green{border-color:#009C4D; background:#07A455;}
+.lui-btn-orange{border-color:#C45B11; background:#EB6100;}
+.lui-btn-gray{border-color:#C5C5C5; background:#F0F0F0; color:#333;}
+.lui-btn-white{border-color:#BBB; background:#FFF; background:-webkit-linear-gradient(#FFF, #EEE); background:linear-gradient(#FFF, #EEE); color:#333;}
+.lui-btn-pink{border-color:#E7034A; background:#FF78A2;}
+.lui-btn-red{border-color:#FA191F; background:#F30;}
+.lui-btn-yellow{border-color:#C45B11; background:#FFD800; color:#333;}
+
+/* hollow */
+.lui-btn-green.lui-btn-hollow{background:#FFF; color:#009C4D;}
+.lui-btn-orange.lui-btn-hollow{background:#FFF; color:#C45B11;}
+.lui-btn-gray.lui-btn-hollow{background:#FFF; border-color:#666; color:#666;}
+.lui-btn-white.lui-btn-hollow{background:#FFF; color:#BBB;}
+.lui-btn-pink.lui-btn-hollow{background:#FFF; color:#E7034A;}
+.lui-btn-red.lui-btn-hollow{background:#FFF; color:#FA191F;}
+.lui-btn-yellow.lui-btn-hollow{background:#FFF; color:#C45B11;}
 
 /* status */
-.lui-btn-disabled { border-color: #A9A9A9; background: #B1B1B1; color: #E2E2E2; }
+.lui-btn-disabled{border-color:#A9A9A9; background:#B1B1B1; color:#E2E2E2;}
