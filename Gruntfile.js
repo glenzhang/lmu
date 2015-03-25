@@ -2,7 +2,7 @@
 grunt.initConfig   // 定义模块的参数配置
 grunt.loadNpmTasks // 引用声明，完成任务所需的模块加载
 grunt.registerTask // 定义具体的任务   
-*/
+*/                                 
 module.exports = function(grunt) {
 
   // Project configuration.
