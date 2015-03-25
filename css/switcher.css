@@ -1,59 +1,12 @@
-.lmu-switcher {
-    display: inline-block;
-    width: 40px;
-    height: 25px;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 25px;
-    vertical-align: middle;
-    -webkit-user-select: none;
-}
-.lmu-switcher i {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.1);
-    background: #FFF;
-    -webkit-transition: all .1s ease-in-out;
-}
-.lmu-switcher-on {
-    border-color: #4CD964;
-    background: #4CD964;
-}
-.lmu-switcher-on i {
-    -webkit-transform: translateX(15PX);
-}
-.lmu-switcher-off {
-    border-color: #EDEDED;
-    background: #F2F2F2;
-}
-.lmu-switcher-off i {
-    -webkit-transform: translateX(0PX);
-}
-.lmu-switcher-checkbox {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #CCC;
-    border-radius: 100%;
-    vertical-align: middle;
-    background: #FFF;
-    outline: none;
-}
-.lmu-switcher-checkbox i {
-    display: block;
-    width: 25%;
-    height: 45%;
-    margin: 13% auto 0;
-    border-width: 0 2px 2px 0;
-    border-style: solid;
-    border-color: #666;
-    -webkit-transform: rotate(45deg);
-}
-.lmu-switcher-checkbox-on {
-    border-color: #666;
-}
-.lmu-switcher-checkbox-on i {} .lmu-switcher-checkbox-off {} .lmu-switcher-checkbox-off i {
-    display: none;
-}
+.lmu-switcher { display: inline-block; width: 40px; height: 25px; border-width: 2px; border-style: solid; border-radius: 25px; vertical-align: middle; -webkit-user-select: none; }
+.lmu-switcher i { display: inline-block; width: 25px; height: 25px; border-radius: 100%; box-shadow: 0 3px 1px rgba(0, 0, 0, 0.1); background: #FFF; -webkit-transition: all .1s ease-in-out; }
+.lmu-switcher-on { border-color: #4CD964; background: #4CD964; }
+.lmu-switcher-on i { -webkit-transform: translateX(15PX); }
+.lmu-switcher-off { border-color: #EDEDED; background: #F2F2F2; }
+.lmu-switcher-off i { -webkit-transform: translateX(0PX); }
+.lmu-switcher-checkbox { display: inline-block; width: 20px; height: 20px; border: 1px solid #CCC; border-radius: 100%; vertical-align: middle; background: #FFF; outline: none; }
+.lmu-switcher-checkbox i { display: block; width: 25%; height: 45%; margin: 13% auto 0; border-width: 0 2px 2px 0; border-style: solid; border-color: #666; -webkit-transform: rotate(45deg); }
+.lmu-switcher-checkbox-on { border-color: #666; }
+.lmu-switcher-checkbox-on i { }
+.lmu-switcher-checkbox-off { }
+.lmu-switcher-checkbox-off i { display: none; }
