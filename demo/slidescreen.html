@@ -4,35 +4,21 @@
 <head>
     <title>Slide Screen</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/slidescreen.css" />
 
     <style>
-    html {
-        overflow: hidden;
-    }
-    .description {
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    header {
-        position: absolute;
-        height: 50px;
-        top: 0;
-    }
-    /*full screen style*/
-    
-    .lmu-screen-wrap {
-        margin-top: 50px;
-    }
-    .lmu-screen-inner section {
-        color: #fff;
-        font-size: 100px;
-        text-align: center;
-    }
+        html { overflow: hidden; }
+        .description { margin-bottom: 10px; text-align: center; }
+        header { position: absolute; height: 50px; top: 0; }
+        
+        /*full screen style
+        .lmu-screen-wrap { height: 300px; }
+        */
+        .lmu-screen-inner section { color: #fff; font-size: 100px; text-align: center; }
     </style>
 
     <script src="../js/vendors/jquery/jquery.js"></script>
@@ -44,36 +30,39 @@
 <body>
 
     <section class="description">
-        <h1>
-            SlideScreen用于垂直滚动整个屏幕或者屏幕内的局部元素, 具体事例见页面底部。
-        </h1>
+        <h1>SlideScreen用于垂直滚动整个屏幕或者屏幕内的局部元素, 具体事例见页面底部。</h1>
     </section>
 
     <div id="J_screen_wrap" class="lmu-screen-wrap">
         <div class="J_screen_inner lmu-screen-inner">
-            <section style="background: #00A1FF">1<span class="lmu-screen-arrow"></span>
+            <section style="background: #00A1FF">
+                1<span class="lmu-screen-arrow"></span>
             </section>
-            <section style="background: #FF7D00">2<span class="lmu-screen-arrow"></span>
+            <section style="background: #FF7D00">
+                2<span class="lmu-screen-arrow"></span>
             </section>
-            <section style="background: #06A343">3<span class="lmu-screen-arrow"></span>
+            <section style="background: #06A343">
+                3<span class="lmu-screen-arrow"></span>
             </section>
-            <section style="background: #A6A343">4<span class="lmu-screen-arrow"></span>
+            <section style="background: #A6A343">
+                4<span class="lmu-screen-arrow"></span>
             </section>
-            <section style="background: #E6A343">5<span class="lmu-screen-arrow"></span>
+            <section style="background: #E6A343">
+                5<span class="lmu-screen-arrow"></span>
             </section>
             <section style="background: #C6A343">6</section>
         </div>
     </div>
 
     <script>
-    (function() {
-        $("#J_screen_wrap").slidescreen({
-            callback: function(p) {
-                //console.log(p);
-            },
-            triggers: true
-        });
-    }());
+        (function () {
+            $("#J_screen_wrap").slidescreen({
+                callback: function (p) {
+                    //console.log(p);
+                },
+                triggers: true
+            });
+        }());
     </script>
 
 </body>

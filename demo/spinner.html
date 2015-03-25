@@ -3,7 +3,7 @@
 
 <head>
     <title>Spinner</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <link rel="stylesheet" href="../css/base.css" />
@@ -12,14 +12,8 @@
     <link rel="stylesheet" href="../css/button.css" />
 
     <style>
-    .description {
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    .demo {
-        margin: 30px 0;
-        text-align: center;
-    }
+        .description { margin-bottom: 10px; text-align: center; }
+        .demo { margin: 30px 0; text-align: center; }
     </style>
 
     <script src="../js/vendors/jquery/jquery.js"></script>
@@ -40,29 +34,29 @@
         <section id="J_container_3" class="demo"></section>
     </section>
     <script>
-    var sI1 = new LMU.UI.Spinner();
-    sI1.$container = $("#J_container_1");
-    sI1.min = 1;
-    sI1.max = 5;
-    sI1.biggerThanMaxHandler = function() {
-        console.log("biggerThanMaxHandler");
-    };
-    sI1.smallerThanMinHandler = function() {
-        console.log("smallerThanMinHandler");
-    };
-    sI1.setup();
+        var sI1 = new LMU.UI.Spinner();
+        sI1.$container = $("#J_container_1");
+        sI1.min = 1;
+        sI1.max = 5;
+        sI1.biggerThanMaxHandler = function () {
+            console.log("biggerThanMaxHandler");
+        };
+        sI1.smallerThanMinHandler = function () {
+            console.log("smallerThanMinHandler");
+        };
+        sI1.setup();
 
-    var sI2 = new LMU.UI.Spinner();
-    sI2.$container = $("#J_container_2");
-    sI2.min = 100;
-    sI2.max = 120;
-    sI2.setup();
+        var sI2 = new LMU.UI.Spinner();
+        sI2.$container = $("#J_container_2");
+        sI2.min = 100;
+        sI2.max = 120;
+        sI2.setup();
 
-    var sI3 = new LMU.UI.Spinner();
-    sI3.$container = $("#J_container_3");
-    sI3.min = 10;
-    sI3.max = 20;
-    sI3.setup();
+        var sI3 = new LMU.UI.Spinner();
+        sI3.$container = $("#J_container_3");
+        sI3.min = 10;
+        sI3.max = 20;
+        sI3.setup();
     </script>
 
 </body>

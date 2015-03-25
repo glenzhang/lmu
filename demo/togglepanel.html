@@ -4,7 +4,7 @@
 <head>
     <title>Toggle Panel</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <link rel="stylesheet" href="../css/base.css" />
@@ -12,25 +12,12 @@
     <link rel="stylesheet" href="../css/grid.css" />
 
     <style>
-    html,
-    body {
-        width: 100%;
-        height: 100%;
-    }
-    .description {
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    .demo {
-        padding: 0 10px;
-    }
-    .lui-grid {
-        margin-top: 10px;
-    }
-    .btns-box {
-        margin-top: 15px;
-        text-align: center;
-    }
+        html,
+        body { width: 100%; height: 100%; }
+        .description { margin-bottom: 10px; text-align: center; }
+        .demo { padding: 0 10px; }
+        .lui-grid { margin-top: 10px; }
+        .btns-box { margin-top: 15px; text-align: center; }
     </style>
 
     <script src="../js/vendors/jquery/jquery.js"></script>
@@ -43,8 +30,7 @@
 <body>
 
     <section class="description">
-        <h1>
-            Toggle Panel
+        <h1>Toggle Panel
         </h1>
     </section>
 
@@ -72,7 +58,7 @@
         </section>
     </section>
 
-    <div id="J_panel" style="width:100%; height:100%; display: none1; background-color: #f60; ">
+    <div id="J_panel" style="width: 100%; height: 100%; display: none; background-color: #f60;">
         <button class="lui-btn lui-btn-rect lui-btn-white lui-btn-s" id="J_hide_panel_trigger">隐藏</button>
     </div>
 
@@ -81,32 +67,32 @@
     </div>
 
     <script>
-    var $direction = $("#J_direction");
-    var $mask = $("#J_mask");
+        var $direction = $("#J_direction");
+        var $mask = $("#J_mask");
 
-    var tpi = new LMU.UI.TogglePanel();
-    tpi.direction = $direction.val();
-    tpi.mask = $mask.val() == "1";
-    tpi.$toggleEle = $("#J_panel");
-    tpi.setup();
-
-    $("#J_show_panel_trigger").on("touchend", function() {
-        tpi.activate();
-    });
-
-    $("#J_hide_panel_trigger").on("touchend", function() {
-        tpi.deactivate();
-    });
-
-    $direction.on("change", function() {
+        var tpi = new LMU.UI.TogglePanel();
         tpi.direction = $direction.val();
-        tpi.resetPanelPosition();
-    });
-
-    $mask.on("change", function() {
         tpi.mask = $mask.val() == "1";
-        tpi.resetPanelPosition();
-    });
+        tpi.$toggleEle = $("#J_panel");
+        tpi.setup();
+
+        $("#J_show_panel_trigger").on("touchend", function () {
+            tpi.activate();
+        });
+
+        $("#J_hide_panel_trigger").on("touchend", function () {
+            tpi.deactivate();
+        });
+
+        $direction.on("change", function () {
+            tpi.direction = $direction.val();
+            tpi.resetPanelPosition();
+        });
+
+        $mask.on("change", function () {
+            tpi.mask = $mask.val() == "1";
+            tpi.resetPanelPosition();
+        });
     </script>
 
 </body>

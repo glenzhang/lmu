@@ -4,25 +4,15 @@
 <head>
     <title>Suggestion</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/suggestion.css" />
 
     <style>
-    html,
-    body {
-        width: 100%;
-        height: 100%;
-    }
-    .description {
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    .demo {
-        padding: 0 10px;
-    }
+        .description { margin-bottom: 10px; text-align: center; }
+        .demo { padding: 0 10px; }
     </style>
 
     <script src="../js/vendors/jquery/jquery.js"></script>
@@ -32,79 +22,76 @@
 
 <body>
     <section class="description">
-        <h1>
-            Suggestion
+        <h1>Suggestion
         </h1>
     </section>
 
     <section class="demo">
-        <input type="text" id="J_sug" style="display:block; width:90%; height: 24px; margin: 0 auto; box-sizing:border-box;" />
+        <input type="text" id="J_sug" style="display: block; width: 90%; height: 24px; margin: 0 auto; box-sizing: border-box;" />
     </section>
 
-
-
     <script>
-    var testArr = [{
-        text: "1",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "21",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "22",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "32",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "34",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "45",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "56",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "67",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "78",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "89",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "90",
-        value: "http://www.fanli.com/"
-    }, {
-        text: "12",
-        value: "http://www.fanli.com/"
-    }];
+        var testArr = [{
+            text: "1",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "21",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "22",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "32",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "34",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "45",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "56",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "67",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "78",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "89",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "90",
+            value: "http://www.fanli.com/"
+        }, {
+            text: "12",
+            value: "http://www.fanli.com/"
+        }];
 
-    $("#J_sug").suggestion({
-        source: testArr,
-        offset: {
-            y: 5,
-            w: 4
-        },
-        select: function(text) {
-            console.log("已选择: " + text);
-        }
-    });
+        $("#J_sug").suggestion({
+            source: testArr,
+            offset: {
+                y: 5,
+                w: 4
+            },
+            select: function (text) {
+                console.log("已选择: " + text);
+            }
+        });
 
-    /*
-    $("#J_sug").suggestion({
-        source: "http://www.fehelper.com/story/13667/01/api?jsoncallback=?",
-        select: function(text) {
-            console.log("已选择: " + text);
-        },
-        offset: {
-            y: 5,
-            w: 4
-        }
-    });
-    */
+        /*
+        $("#J_sug").suggestion({
+            source: "http://www.fehelper.com/story/13667/01/api?jsoncallback=?",
+            select: function(text) {
+                console.log("已选择: " + text);
+            },
+            offset: {
+                y: 5,
+                w: 4
+            }
+        });
+        */
     </script>
 
 </body>

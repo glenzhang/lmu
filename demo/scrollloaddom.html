@@ -2,21 +2,15 @@
 <html>
 
 <head>
-    <title>ScrollLoadDOM</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Scroll Load DOM</title>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <link rel="stylesheet" href="../css/base.css" />
 
     <style>
-    .description {
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    .demo .blank-box {
-        height: 400px;
-        background: #FF6A00;
-    }
+        .description { margin-bottom: 10px; text-align: center; }
+        .demo .blank-box { height: 400px; background: #FF6A00; }
     </style>
 
     <script src="../js/vendors/jquery/jquery.js"></script>
@@ -27,8 +21,7 @@
 
 <body>
     <section class="description">
-        <h1>
-            Scroll Load Dom
+        <h1>Scroll Load Dom
         </h1>
     </section>
 
@@ -56,14 +49,14 @@
     </section>
 
     <script>
-    (function() {
-        $(".J_pack").scrollloaddom({
-            threshold: 100,
-            perCallback: function($e) {
-                console.log($e);
-            }
-        });
-    }());
+        (function () {
+            $(".J_pack").scrollloaddom({
+                threshold: 100,
+                perCallback: function ($e) {
+                    console.log($e);
+                }
+            });
+        }());
     </script>
 
 </body>

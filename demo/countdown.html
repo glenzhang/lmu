@@ -1,42 +1,20 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Countdown</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/button.css" />
-
     <link rel="stylesheet" href="../css/countdown.css" />
 
     <style>
-    .description {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .demo {
-        margin: 30px 0;
-        text-align: center;
-    }
-    .btns {
-        margin-top: 30px;
-        text-align: center;
-    }
-    .btns button {
-        margin-right: 10px;
-    }
-    .log {
-        margin: 10px;
-        padding: 5px;
-        text-align: left;
-        background: #fff;
-        border: 1px solid #666;
-        font-size: 12px;
-        line-height: 16px;
-        color: #999;
-    }
+        .description { text-align: center; margin-bottom: 10px; }
+        .demo { margin: 30px 0; text-align: center; }
+        .btns { margin-top: 30px; text-align: center; }
+        .btns button { margin-right: 10px; }
+        .log { margin: 10px; padding: 5px; text-align: left; background: #fff; border: 1px solid #666; font-size: 12px; line-height: 16px; color: #999; }
     </style>
 
     <script src="../js/vendors/jquery/jquery.js"></script>
@@ -69,32 +47,32 @@
 
     </section>
     <script>
-    var cd = new LMU.UI.Countdown();
-    cd.$output = $("#J_countdown");
-    cd.type = "all";
-    cd.dhMerge = false;
-    cd.onExpiry = function() {
-        console.log("onExpiry");
-        addLog("倒计时结束");
-    };
-    cd.setup();
+        var cd = new LMU.UI.Countdown();
+        cd.$output = $("#J_countdown");
+        cd.type = "all";
+        cd.dhMerge = false;
+        cd.onExpiry = function () {
+            console.log("onExpiry");
+            addLog("倒计时结束");
+        };
+        cd.setup();
 
-    var $log = $("#J_log");
-    $log.append("<div>倒计时开始...");
+        var $log = $("#J_log");
+        $log.append("<div>倒计时开始...");
 
-    $("#J_pause").on("touchend", function() {
-        cd.pause();
-        addLog("已经暂停, 倒计时还剩{0}s".format(cd.remain));
-    });
+        $("#J_pause").on("touchend", function () {
+            cd.pause();
+            addLog("已经暂停, 倒计时还剩{0}s".format(cd.remain));
+        });
 
-    $("#J_reset").on("touchend", function() {
-        cd.reset();
-        addLog("重新开始, 倒计时还剩{0}s".format(cd.remain));
-    });
+        $("#J_reset").on("touchend", function () {
+            cd.reset();
+            addLog("重新开始, 倒计时还剩{0}s".format(cd.remain));
+        });
 
-    function addLog(content) {
-        $log.append("<div>{0}</div>".format(content));
-    }
+        function addLog(content) {
+            $log.append("<div>{0}</div>".format(content));
+        }
     </script>
 </body>
 
