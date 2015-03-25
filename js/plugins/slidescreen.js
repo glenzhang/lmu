@@ -6,7 +6,7 @@
  * @import core/lmu.js, vendors/jquery/jquery.js
  */
 
-(function ($) {
+(function ($) { 
     $.fn.slidescreen = function (options) {
         var settings = $.extend({
             innerSelector: ".J_screen_inner",
@@ -66,7 +66,7 @@
                         $t.removeClass(currentTriggerClass);
                         $t.eq(curPage).addClass(currentTriggerClass);
                     }
-                    
+
                 }, false);
 
                 $documet.on("click", settings.nextBtnSelector, function () {

@@ -17,7 +17,7 @@ Function.prototype.method = function (name, fn) {
 
     var aArgs = Array.prototype.slice.call(arguments, 1),
         fToBind = this,
-        fNOP = function () {},
+        fNOP = function () { },
         fBound = function () {
             return fToBind.apply(this instanceof fNOP && oThis ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
         };
@@ -96,13 +96,13 @@ var LMU = {
         };
 
         if (parent) {
-            var subclass = function () {};
+            var subclass = function () { };
             subclass.prototype = parent.prototype;
             klass.prototype = new subclass();
         }
 
         if (!klass.prototype.init) {
-            klass.prototype.init = function () {};
+            klass.prototype.init = function () { };
         }
 
         klass.fn = klass.prototype;

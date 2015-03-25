@@ -7,7 +7,7 @@
  * @import vendors/jquery/jquery.js, core/lmu.js, core/widget.js
  */
 
-LMU.UI.define("TogglePanel", {
+LMU.UI.define("TogglePanel", {  
     init: function () {
         // toggle direction, up down left right
         this.direction = "up";

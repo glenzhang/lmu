@@ -14,7 +14,7 @@
  * Copyright 2013, MIT License
  *
  */
-LMU.UI.Slider = function (container, options) {
+LMU.UI.Slider = function (container, options) { 
 
     "use strict";
 

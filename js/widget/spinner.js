@@ -7,7 +7,7 @@
  * @import vendors/jquery/jquery.js, core/lmu.js, core/widget.js, widget/dialog.js
  */
 
-LMU.UI.define("Spinner", {
+LMU.UI.define("Spinner", {  
 
     init: function () {
         this.$container = "";

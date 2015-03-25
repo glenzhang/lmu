@@ -7,7 +7,7 @@
  * @import core/lmu.js, vendors/jquery/jquery.js, vendors/iscroll/iscroll-lite-v5.js
  */
 
-(function ($) {
+(function ($) { 
     $.extend({
         navigator: function (options) {
 

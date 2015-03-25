@@ -7,7 +7,7 @@
  * @import vendors/jquery/jquery.js, core/lmu.js, core/widget.js
  */
 
-LMU.UI.define("Countdown", {
+LMU.UI.define("Countdown", {   
     init: function () {
         this.$output = "";
         this.type = "all", // all/day/hour/minute/second

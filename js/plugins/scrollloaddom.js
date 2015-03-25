@@ -7,7 +7,7 @@
  * @import core/lmu.js, vendors/jquery/jquery.js, extend/jquery.extend.js
  */
 
-(function ($) {
+(function ($) {  
 
     $.fn.scrollloaddom = function (options) {
         var settings = $.extend({

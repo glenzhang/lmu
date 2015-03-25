@@ -8,7 +8,7 @@
  * @import vendors/jquery/jquery.js, core/fmu.js, core/widget.js, widget/dialog.js
  */
 
-LMU.UI.Dialog.hookPlugin({
+LMU.UI.Dialog.hookPlugin({   
     "modal": function (options) {
         var modalTemplate = new StringBuilder();
         modalTemplate.append("<div class='lmu-dl-wrap lmu-dl-scale lmu-dl-modal-wrap'>")

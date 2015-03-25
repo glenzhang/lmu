@@ -7,7 +7,7 @@
  * @import vendors/jquery/jquery-2.1.1.js, core/lmu.js, core/widget.js
  */
 
-LMU.UI.define("Switcher", {
+LMU.UI.define("Switcher", {    
     init: function () {
         this.parent = null;
         this.$checkboxEle = "";

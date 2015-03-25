@@ -7,7 +7,7 @@
  * @import vendors/jquery/jquery-2.1.1.js, core/lmu.js, core/widget.js
  */
 
-LMU.UI.define("Dialog", {
+LMU.UI.define("Dialog", {  
     init: function () {
         //dialog出现的位置 center top bottom
         this.position = 'center';

@@ -6,7 +6,7 @@
  * @import core/lmu.js, vendors/jquery/jquery.js
  */
 
-(function ($) {
+(function ($) {    
 
     $.fn.suggestion = function (options) {
         var settings = $.extend(true, {}, {

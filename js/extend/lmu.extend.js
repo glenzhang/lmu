@@ -5,7 +5,7 @@
  * @file dialog
  * @import core/lmu.js
  */
-(function (LDO) {
+(function (LDO) {  
 
     var publisher = {
         subscribers: {

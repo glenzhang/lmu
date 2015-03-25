@@ -7,7 +7,7 @@
  * @import vendors/jquery/jquery.js, core/lmu.js, core/widget.js, widget/dialog.js
  */
 
-LMU.UI.define("DatePicker", {
+LMU.UI.define("DatePicker", {  
 
     init : function() {
         
