@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cleanup</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/cleanup.css" />
+
+    <style>
+        .description { margin-bottom: 10px; text-align: center; }
+        .demo { padding: 0 10px; }
+        .cleanup { display:block; width:90%; height: 45px; margin: 0 auto; border:1px solid #999; box-sizing:border-box;}
+    </style>
+
+    <script src="../js/vendors/jquery/jquery.js"></script>
+    <script src="../js/core/lmu.js"></script>
+    <script src="../js/core/widget.js"></script>
+    <script src="../js/plugins/cleanup.js"></script>
+</head>
+
+<body>
+    <section class="description">
+        <h1>Cleanup</h1>
+    </section>
+
+    <section class="demo">
+        <input type="text" class="cleanup" id="J_cleanup" />
+    </section>
+
+    <script>
+        $("#J_cleanup").cleanup();
+    </script>
+</body>
+
+</html>

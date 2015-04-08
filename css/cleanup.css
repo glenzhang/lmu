@@ -1,0 +1,5 @@
+.lmu-cleanup { display: inline-block; position: absolute; padding: 13px;}
+.lmu-cleanup .icon-delete{position:relative; display:inline-block; width:18px; height:18px; border-radius:100%; vertical-align:middle; background:#ddd; color:#FFF;}
+.lmu-cleanup .icon-delete:before, .lmu-cleanup .icon-delete:after{position:absolute; top:8px; left:3px; display:block; width:12px; height:2px; overflow:hidden; background:#FFF; content:" ";}
+.lmu-cleanup .icon-delete:before{-webkit-transform:rotate(-45deg); transform:rotate(-45deg);}
+.lmu-cleanup .icon-delete:after{-webkit-transform:rotate(45deg); transform:rotate(45deg);}
