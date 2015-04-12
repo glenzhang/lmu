@@ -1,34 +1,112 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>FMU</title> 
-
+    <title>FMU</title>
     <style>
-        html { font-size: 62.5%; /*10 ÷ 16 × 100% = 62.5%*/ }
-        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
-        dl, dt, dd, ul, ol, li,
-        pre,
-        fieldset, lengend, button, input, textarea,
-        th, td { margin: 0; padding: 0; }
-        body, button, input, select, textarea { font: 1.4rem/1.6 Tahoma, Helvetica, Arial, "宋体", sans-serif; }
-        a { color: #666; text-decoration: none; }
-        a:active { outline: none; }
-
-        .catalog { margin-bottom: 1rem; }
-        .title { height: 3rem; padding-left: 1rem; background: #2b88cf; color: #fff; font-size: 1.6rem; font-weight: bold; line-height: 3rem; }
-        .catalog ul { }
-        .catalog li { height: 3rem; padding-left: 0.7rem; line-height: 3rem; border-bottom: 0.1rem solid #e5e5e5; }
-        .catalog li a { display: block; }
-        #wrapper { position: absolute; z-index: 1; top: 0; bottom: 0px; left: 0; width: 100%; overflow: hidden; }
-
-        #scroller { position: absolute; z-index: 1; -webkit-tap-highlight-color: rgba(0,0,0,0); width: 100%; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-text-size-adjust: none; }
+    html {
+        font-size: 62.5%;
+        /*10 ÷ 16 × 100% = 62.5%*/
+    }
+    
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    p,
+    blockquote,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    pre,
+    fieldset,
+    lengend,
+    button,
+    input,
+    textarea,
+    th,
+    td {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body,
+    button,
+    input,
+    select,
+    textarea {
+        font: 1.4rem/1.6 Tahoma, Helvetica, Arial, "宋体", sans-serif;
+    }
+    
+    a {
+        color: #666;
+        text-decoration: none;
+    }
+    
+    a:active {
+        outline: none;
+    }
+    
+    .catalog {
+        margin-bottom: 1rem;
+    }
+    
+    .title {
+        height: 3rem;
+        padding-left: 1rem;
+        background: #2b88cf;
+        color: #fff;
+        font-size: 1.6rem;
+        font-weight: bold;
+        line-height: 3rem;
+    }
+    
+    .catalog ul {}
+    
+    .catalog li {
+        height: 3rem;
+        padding-left: 0.7rem;
+        line-height: 3rem;
+        border-bottom: 0.1rem solid #e5e5e5;
+    }
+    
+    .catalog li a {
+        display: block;
+    }
+    
+    #wrapper {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    #scroller {
+        position: absolute;
+        z-index: 1;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        width: 100%;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-text-size-adjust: none;
+    }
     </style>
-
     <script src="js/vendors/iscroll/iscroll-lite-v5.js"></script>
-
 </head>
 
 <body>
@@ -63,7 +141,12 @@
             <section class="catalog">
                 <h6 class="title">plugin</h6>
                 <ul>
-                    <li><a href="demo/imglazyload.html">img lazy load</a></li>
+                    <li>
+                        <a href="demo/cleanup.html">cleanup</a>
+                    </li>
+                    <li>
+                        <a href="demo/imglazyload.html">img lazy load</a>
+                    </li>
                     <li>
                         <a href="demo/navigator.html">navigator</a>
                     </li>
@@ -73,14 +156,23 @@
                     <li>
                         <a href="demo/slidescreen.html">slide screen</a>
                     </li>
+                    <li>
+                        <a href="demo/suggestion.html">suggestion</a>
+                    </li>
                 </ul>
             </section>
-
         </div>
     </div>
     <script>
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-        new IScroll('#wrapper', { preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/ } })
+    document.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    }, false);
+    new IScroll('#wrapper', {
+        preventDefaultException: {
+            tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/
+        }
+    })
     </script>
 </body>
+
 </html>
