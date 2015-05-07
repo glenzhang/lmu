@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Countdown Button</title>
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/button.css" />
+    <link rel="stylesheet" href="../css/countdown.css" />
+
+    <style>
+        .description { text-align: center; margin-bottom: 10px; }
+        .demo { margin: 30px 0; text-align: center; }
+        .btns { margin-top: 30px; text-align: center; }
+        .btns button { margin-right: 10px; }
+        .log { margin: 10px; padding: 5px; text-align: left; background: #fff; border: 1px solid #666; font-size: 12px; line-height: 16px; color: #999; }
+    </style>
+
+    <script src="../js/vendors/jquery/jquery.js"></script>
+    <script src="../js/core/lmu.js"></script>
+    <script src="../js/plugins/countdownbutton.js"></script>
+</head>
+<body>
+    <section class="description">
+        <h1>Dialog</h1>
+    </section>
+
+    <section class="demo">
+        <input type="button" id="J_cdb" class="lui-btn lui-btn-green lui-btn-l" value="获取验证码" />
+    </section>
+<script>
+            (function () {
+            var $cdb = $("#J_cdb");
+
+            $cdb.on("click", function () {
+                $cdb.countdownButton({
+                    until: 10,
+                    appendText: "秒后重新获取",
+                    onComplete: function () {
+                        console.log("倒计时结束");
+                    }
+                });
+
+
+            });
+
+
+        })();
+
+    </script>
+</body>
+</html>

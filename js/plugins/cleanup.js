@@ -99,6 +99,9 @@
             cleanupInstance.offset = settings.offset;
             cleanupInstance.cleanupComplete = settings.cleanupComplete;
             cleanupInstance.setup();
+            
+            cleanupInstance.$input.data("cleanup", cleanupInstance);
+
         });
     }
 
