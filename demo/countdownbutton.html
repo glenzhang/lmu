@@ -23,16 +23,16 @@
 </head>
 <body>
     <section class="description">
-        <h1>Dialog</h1>
+        <h1>Countdown Button</h1>
     </section>
 
     <section class="demo">
-        <input type="button" id="J_cdb" class="lui-btn lui-btn-green lui-btn-l" value="获取验证码" />
+        <input type="button" id="J_cdb" class="lui-btn lui-btn-green lui-btn-l " value="获取验证码" />
     </section>
-<script>
-            (function () {
+    <script>
+       (function () {
             var $cdb = $("#J_cdb");
-
+            
             $cdb.on("click", function () {
                 $cdb.countdownButton({
                     until: 10,
@@ -41,11 +41,7 @@
                         console.log("倒计时结束");
                     }
                 });
-
-
             });
-
-
         })();
 
     </script>
