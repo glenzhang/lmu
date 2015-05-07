@@ -17,7 +17,7 @@ Function.prototype.method = function (name, fn) {
 
     var aArgs = Array.prototype.slice.call(arguments, 1),
         fToBind = this,
-        fNOP = function () { },
+        fNOP = function () {},
         fBound = function () {
             return fToBind.apply(this instanceof fNOP && oThis ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
         };
@@ -66,6 +66,17 @@ var LMU = {
             if (typeof window[rt] == "undefined") {
                 window[rt] = {
                     prop: function (k, v, c) {
+                        if (Object.prototype.toString.call(k) === "[object Object]") {
+                            for (var key in k) {
+                                if (k.hasOwnProperty(key)) {
+                                    if (!this[key]) {
+                                        this[key] = k[key];
+                                    }
+                                }
+                            }
+                            return this;
+                        }
+
                         if (!this[k]) {
                             this[k] = v;
                         }
@@ -78,6 +89,16 @@ var LMU = {
                 o[d[j]] = o[d[j]] || {};
                 o = o[d[j]];
                 o.prop = function (k, v, c) {
+                    if (Object.prototype.toString.call(k) === "[object Object]") {
+                        for (var key in k) {
+                            if (k.hasOwnProperty(key)) {
+                                if (!this[key]) {
+                                    this[key] = k[key];
+                                }
+                            }
+                        }
+                        return this;
+                    }
                     if (!this[k]) {
                         this[k] = v;
                     }
@@ -96,13 +117,13 @@ var LMU = {
         };
 
         if (parent) {
-            var subclass = function () { };
+            var subclass = function () {};
             subclass.prototype = parent.prototype;
             klass.prototype = new subclass();
         }
 
         if (!klass.prototype.init) {
-            klass.prototype.init = function () { };
+            klass.prototype.init = function () {};
         }
 
         klass.fn = klass.prototype;
@@ -157,6 +178,17 @@ var LMU = {
     },
 
     prop: function (k, v, c) {
+        if (Object.prototype.toString.call(k) === "[object Object]") {
+            for (var key in k) {
+                if (k.hasOwnProperty(key)) {
+                    if (!this[key]) {
+                        this[key] = k[key];
+                    }
+                }
+            }
+            return this;
+        }
+        
         if (!this[k]) {
             this[k] = v;
         }
