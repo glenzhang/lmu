@@ -4,7 +4,7 @@
  * @import core/lmu.js
  */
 
-(function () {  
+(function () {
 
     LMU.UI.Base = new LMU.Class();
 

@@ -178,6 +178,9 @@ var LMU = {
     },
 
     prop: function (k, v, c) {
+        // Namespace.prop(k, 1, true) ==> Namespace[k] = 1; return Namespace[k]; 
+        // Namespace.prop(k, 1) ==> Namespace[k] = 1; return Namespace; 
+        // Namespace.prop({k : 1}) ==> Namespace[k] = 1; return Namespace
         if (Object.prototype.toString.call(k) === "[object Object]") {
             for (var key in k) {
                 if (k.hasOwnProperty(key)) {
